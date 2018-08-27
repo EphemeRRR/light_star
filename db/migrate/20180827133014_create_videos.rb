@@ -4,7 +4,7 @@ class CreateVideos < ActiveRecord::Migration[5.2]
       t.string :title
       t.string :youtube_id
       t.integer :duration_seconds
-      t.string :difficulty
+      t.integer :minimum_age
 
       t.timestamps
     end
