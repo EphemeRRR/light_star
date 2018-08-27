@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_27_160650) do
+ActiveRecord::Schema.define(version: 2018_08_27_161608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,16 @@ ActiveRecord::Schema.define(version: 2018_08_27_160650) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "video_categories", force: :cascade do |t|
+    t.bigint "video_id"
+    t.bigint "sub_category_id"
+    t.integer "relevance"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sub_category_id"], name: "index_video_categories_on_sub_category_id"
+    t.index ["video_id"], name: "index_video_categories_on_video_id"
+  end
+
   create_table "videos", force: :cascade do |t|
     t.string "title"
     t.string "youtube_id"
@@ -62,4 +72,6 @@ ActiveRecord::Schema.define(version: 2018_08_27_160650) do
   add_foreign_key "histories", "users"
   add_foreign_key "histories", "videos"
   add_foreign_key "sub_categories", "super_categories"
+  add_foreign_key "video_categories", "sub_categories"
+  add_foreign_key "video_categories", "videos"
 end
