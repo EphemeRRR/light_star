@@ -54,17 +54,13 @@
 <part>id</part>
 </key>
 </table>
-<table x="285" y="101" name="categories to splite">
+<table x="221" y="143" name="super_categories">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="name" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
-<row name="parent" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="categories to splite" row="id" />
-</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
@@ -99,7 +95,7 @@
 </row>
 <row name="category" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="categories to splite" row="id" />
+<default>NULL</default><relation table="sub_categories" row="id" />
 </row>
 <row name="value" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
@@ -111,11 +107,11 @@
 <table x="954" y="302" name="histories">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="videos" row="id" />
-</row>
+<default>NULL</default></row>
 <row name="video" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default></row>
+<default>NULL</default><relation table="videos" row="id" />
+</row>
 <row name="user" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="Users" row="id" />
@@ -124,13 +120,13 @@
 <part>id</part>
 </key>
 </table>
-<table x="276" y="299" name="scores">
+<table x="280" y="305" name="scores">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="category" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="categories to splite" row="id" />
+<default>NULL</default><relation table="super_categories" row="id" />
 </row>
 <row name="user" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
@@ -143,7 +139,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="476" y="191" name="schools or jobs">
+<table x="485" y="198" name="schools or jobs">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -152,7 +148,22 @@
 <default>NULL</default></row>
 <row name="category" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="categories to splite" row="id" />
+<default>NULL</default><relation table="super_categories" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="31" y="70" name="sub_categories">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="name" null="1" autoincrement="0">
+<datatype>CHAR</datatype>
+<default>NULL</default></row>
+<row name="parent_category" null="1" autoincrement="0">
+<datatype>CHAR</datatype>
+<default>NULL</default><relation table="super_categories" row="id" />
 </row>
 <key type="PRIMARY" name="">
 <part>id</part>
