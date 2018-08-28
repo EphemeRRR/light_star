@@ -10,6 +10,11 @@
   justify-content: space-between;
 }
 
+/* Dropdown hamburger menu */
+.navbar-wagon .dropdown {
+  color: $off-white;
+}
+
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
@@ -37,11 +42,11 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: #616668;
+  color: $off-white;
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: $secondary;
   text-decoration: none;
 }
 
@@ -61,7 +66,7 @@
 }
 .navbar-wagon-dropdown-menu li > a:hover {
   background: transparent !important;
-  color: black !important;
+  color: $secondary !important;
 }
 .navbar-wagon-dropdown-menu:before {
   content: ' ';
@@ -70,7 +75,7 @@
   position: absolute;
   right: 10px;
   top: -6px;
-  background-color: white;
+  background-color: $off-white;
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
