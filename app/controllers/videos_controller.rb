@@ -1,10 +1,10 @@
 class VideosController < ApplicationController
   skip_before_action :authenticate_user!
-  before_action :set_video
+  before_action :set_video, only: [:show]
 
   def index
     if user_signed_in?
-      #
+      # ... current_user.scores
     else
       @videos = Video.all
     end
