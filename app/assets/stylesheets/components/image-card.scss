@@ -1,0 +1,35 @@
+.card {
+  height: 350px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  .card-img {
+    height: 200px;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .card-content {
+    background-color: #fff;
+    padding: 0 10px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .details {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+    }
+
+    .description {
+      font-size: 18px;
+    }
+
+    .footer {
+      font-size: 12px;
+    }
+  }
+}
