@@ -75,11 +75,21 @@
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
-.search-bar-input-group {
+.search-bar-wrapper {
   display: table;
-  max-width: 400px;
-  margin: 0 15px;
+  max-width: 450px;
+  padding: 0 15px;
 }
+
+// Center nav-bar on larger screens - responsively
+@media (min-width: 992px) {
+  .search-bar-wrapper {
+    position:absolute;
+    margin-left: 50%;
+    left: -210px;
+  }
+}
+
 .devise-form-control-search:focus {
   // border-left: $secondary 4px solid;
   border-color: $secondary;
