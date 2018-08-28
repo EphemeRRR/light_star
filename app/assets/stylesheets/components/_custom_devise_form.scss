@@ -19,6 +19,16 @@
 .form-footer-links {
   margin-top: 30px;
 }
+
+.form-footer-links a {
+  color: $primary;
+}
+
+.form-footer-links a:hover {
+  color: $primary;
+  opacity: 0.5;
+}
+
 .devise-form-control:focus {
   border-left: $primary 4px solid;
   border-color: $primary;
