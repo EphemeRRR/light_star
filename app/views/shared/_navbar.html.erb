@@ -5,12 +5,12 @@
   <% end %>
 
     <div class="search-bar-input-group">
+      <input type="text" class="form-control devise-form-control-search" placeholder="Search">
       <span class="input-group-btn">
-        <button class="btn btn-default" type="button">
-          <i class="icon-search fas fa-search"></i>
+        <button class="btn btn-search btn-default" type="button">
+          <i class="text-secondary fas fa-search"></i>
         </button>
       </span>
-      <input type="text" class="form-control" placeholder="Search">
     </div>
 
   <!-- Right Navigation -->
@@ -20,7 +20,6 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
