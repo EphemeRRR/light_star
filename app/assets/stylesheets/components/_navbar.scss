@@ -78,7 +78,15 @@
 .search-bar-input-group {
   display: table;
   max-width: 400px;
+  margin: 0 15px;
 }
-.icon-search {
-  opacity: 0.7;
+.devise-form-control-search:focus {
+  // border-left: $secondary 4px solid;
+  border-color: $secondary;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 4px rgba(15, 205, 123, 0.5)
 }
+.btn-search {
+  margin-left: 0 !important;
+  border-left: none;
+}
+
