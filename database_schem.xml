@@ -75,10 +75,10 @@
 <row name="youtube_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="duration" null="1" autoincrement="0">
+<row name="duration_seconds" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="difficulties (gem act as votable??)" null="1" autoincrement="0">
+<row name="minimum_age" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
@@ -97,7 +97,7 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="sub_categories" row="id" />
 </row>
-<row name="value" null="1" autoincrement="0">
+<row name="relevance" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
@@ -132,7 +132,7 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="Users" row="id" />
 </row>
-<row name="viewing time" null="1" autoincrement="0">
+<row name="viewing_time_seconds" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
