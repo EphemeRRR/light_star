@@ -4,3 +4,7 @@
 .text-secondary {
   color: $secondary
 }
+.borderless-no-radius {
+  border: none;
+  border-radius: 0;
+}
