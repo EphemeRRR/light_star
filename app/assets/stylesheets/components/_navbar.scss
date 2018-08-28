@@ -75,6 +75,10 @@
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
-.nav-bar-search {
-  min-width: 400px;
+.search-bar-input-group {
+  display: table;
+  max-width: 400px;
+}
+.icon-search {
+  opacity: 0.7;
 }
