@@ -1,5 +1,10 @@
-<h1>Videos</h1>
-<p>Find me in app/views/videos/search.html.erb</p>
 
 
-<%= render 'iframe_img', videos: @videos %>
+<div class="container">
+  <% if @videos.count != 0 %>
+    <h1 class="text-center">Your results</h1>
+    <%= render 'iframe_img', videos: @videos %>
+  <% else %>
+    <% flash[:alert] = "Video not existing!! Please search again" %>
+  <% end %>
+</div>
