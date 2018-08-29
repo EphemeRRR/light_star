@@ -5,7 +5,11 @@
       <%= f.error_notification %>
 
       <div class="form-inputs devise-form-custom input-sm">
-        <%= f.input :email, required: true, autofocus: true, input_html: { class: 'devise-form-control' } %>
+        <%= f.input :username,
+                    required: true,
+                    autofocus: true ,
+                    input_html: { autocomplete: "username", class: 'devise-form-control' }%>
+        <%= f.input :email, required: true, input_html: { class: 'devise-form-control' } %>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
