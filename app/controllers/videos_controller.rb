@@ -15,6 +15,11 @@ class VideosController < ApplicationController
   end
 
   def search
+    if params[:query].present?
+      @videos = Video.global_search(params[:query])
+    else
+      @videos = Video.all
+    end
   end
 
   private
