@@ -3,11 +3,11 @@ class VideosController < ApplicationController
   before_action :set_video, only: [:show]
 
   def index
-    if user_signed_in?
-      # ... current_user.scores
-    else
+    # if user_signed_in?
+    #   # ... current_user.scores
+    # else
       @videos = Video.all
-    end
+    # end
   end
 
   def show
