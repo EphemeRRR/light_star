@@ -12,7 +12,7 @@ gem 'redis'
 gem 'friendly_id', '~> 5.1.0'
 
 # google-youtube api
-gem 'google-api-client', '>0.7'
+# gem 'google-api-client', '>0.7'
 gem 'yt', '~> 0.28.0'
 
 
