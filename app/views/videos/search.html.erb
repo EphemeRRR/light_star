@@ -5,6 +5,6 @@
     <h1 class="text-center">Your results</h1>
     <%= render 'iframe_img', videos: @videos %>
   <% else %>
-    <% flash[:alert] = "Video not existing!! Please search again" %>
+    <% flash[:alert] = "Video does not exist!! Please search again." %>
   <% end %>
 </div>

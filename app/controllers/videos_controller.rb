@@ -18,7 +18,7 @@ class VideosController < ApplicationController
     if params[:query].present?
       @videos = Video.global_search(params[:query])
     else
-     flash[:alert] = "Video not existing!! Please search again"
+     flash[:alert] = "Video does not exist!! Please search again."
      redirect_to root_path
     end
   end
