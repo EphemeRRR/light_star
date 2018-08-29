@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'videos/:id', to: 'videos#show', as: 'video'
   get 'videos/search', to: 'videos#search'
+  get 'videos/:id', to: 'videos#show', as: 'video'
   root to: 'videos#index'
 
   # get ':id' always last line of roots
