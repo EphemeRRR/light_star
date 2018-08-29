@@ -5,9 +5,12 @@
       <%= f.error_notification %>
 
       <div class="form-inputs devise-form-custom input-sm">
-        <%= f.input :email,
+        <%= f.input :username,
                     required: true,
                     autofocus: true ,
+                    input_html: { autocomplete: "username", class: 'devise-form-control' }%>
+        <%= f.input :email,
+                    required: true,
                     input_html: { autocomplete: "email", class: 'devise-form-control' }%>
         <%= f.input :password,
                     required: true,
