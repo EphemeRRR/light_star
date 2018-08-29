@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/:id', to: 'users#show', as: 'user_profile'
   get 'videos/:id', to: 'videos#show', as: 'video'
   get 'videos/search', to: 'videos#search'
   devise_for :users
