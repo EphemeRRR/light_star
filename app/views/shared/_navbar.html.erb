@@ -4,14 +4,27 @@
     <%= image_tag "logo.png", height: 50 %>
   <% end %>
 
-    <div class="search-bar-wrapper">
+  <%= form_tag videos_search_path, class: "search-bar-wrapper", method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control form-style",
+      placeholder: "Find a video"
+    %>
+    <span class="input-group-btn">
+      <%= button_tag(type: "submit", class: "btn btn-search btn-default") do %>
+        <i class="text-secondary fas fa-search"></i>
+      <% end %>
+    </span>
+  <% end %>
+
+    <!-- <div class="search-bar-wrapper">
       <input type="text" class="form-control devise-form-control-search" placeholder="Search">
       <span class="input-group-btn">
         <button class="btn btn-search btn-default" type="button">
           <i class="text-secondary fas fa-search"></i>
         </button>
       </span>
-    </div>
+    </div> -->
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
