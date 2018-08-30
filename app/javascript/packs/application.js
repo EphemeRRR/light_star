@@ -20,9 +20,12 @@ const chart = () => {
 
       // The data for our dataset
       data: {
-          labels: ["Categories", "Physiques, Chimies & Technologies", "Terre & Univers", "Les Vivants", "Sports & Santés", "Cultures & Sociétés", "Langues & Languages", "Mathématiques", "Histoires", "Techniques"],
+          labels: ["Categories", "Physiques, Chimies & Technologies",
+           "Terre & Univers", "Les Vivants", "Sports & Santés",
+            "Cultures & Sociétés", "Langues & Languages",
+            "Mathématiques", "Histoires", "Techniques"],
           datasets: [{
-              label: "My First dataset",
+              label: "Your favorite categories",
               backgroundColor: 'rgb(255, 99, 132)',
               borderColor: 'rgb(255, 99, 132)',
               data: [0, 20, 10, 5, 2, 20, 30, 45, 15, 10],
