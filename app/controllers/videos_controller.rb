@@ -12,6 +12,10 @@ class VideosController < ApplicationController
 
   def show
     #
+    if user_signed_in?
+      raise
+      History.create(video: @video, user: current_user)
+    end
   end
 
   def search
