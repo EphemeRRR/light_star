@@ -11,6 +11,11 @@ gem 'redis'
 
 gem 'friendly_id', '~> 5.1.0'
 
+# google-youtube api
+# gem 'google-api-client', '>0.7'
+gem 'yt', '~> 0.28.0'
+
+
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'font-awesome-sass', '~> 5.0.9'
