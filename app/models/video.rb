@@ -2,6 +2,7 @@ class Video < ApplicationRecord
   has_many :histories, dependent: :destroy
   has_many :video_categories, dependent: :destroy
   has_many :sub_categories, through: :video_categories
+  has_many :super_categories, through: :sub_categories
 
   validates :youtube_id, uniqueness: true, presence: true, format: { with: /\A.{11}\z/ }
   validates :minimum_age, presence: true
