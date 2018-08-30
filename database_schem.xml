@@ -89,11 +89,11 @@
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="video" null="1" autoincrement="0">
+<row name="video_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="videos" row="id" />
 </row>
-<row name="category" null="1" autoincrement="0">
+<row name="sub_category_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="sub_categories" row="id" />
 </row>
@@ -108,11 +108,11 @@
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="video" null="1" autoincrement="0">
+<row name="video_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="videos" row="id" />
 </row>
-<row name="user" null="1" autoincrement="0">
+<row name="user_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="Users" row="id" />
 </row>
@@ -124,15 +124,18 @@
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="category" null="1" autoincrement="0">
+<row name="super_category_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="super_categories" row="id" />
 </row>
-<row name="user" null="1" autoincrement="0">
+<row name="user_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="Users" row="id" />
 </row>
 <row name="viewing_time_seconds" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="viewed_videos" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
@@ -146,7 +149,7 @@
 <row name="name" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
-<row name="category" null="1" autoincrement="0">
+<row name="super_category_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="super_categories" row="id" />
 </row>
@@ -161,8 +164,8 @@
 <row name="name" null="1" autoincrement="0">
 <datatype>CHAR</datatype>
 <default>NULL</default></row>
-<row name="parent_category" null="1" autoincrement="0">
-<datatype>CHAR</datatype>
+<row name="super_category_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
 <default>NULL</default><relation table="super_categories" row="id" />
 </row>
 <key type="PRIMARY" name="">
