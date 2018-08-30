@@ -10,14 +10,9 @@
   </div>
 </div>
   </div>
-  <div class="categories">
-    <h2>Categories</h2>
-    <p>Technologies</p>
-  </div>
-  <div class="history">
-    <h2>History</h2>
-    <p>Movie</p>
-  </div>
+  <div class="spider-chart">
+  <canvas id="myChart" data-data="<%= @data.to_json %>"></canvas>
 </div>
 
-<canvas id="myChart"></canvas>
+
+

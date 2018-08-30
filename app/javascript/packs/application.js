@@ -13,6 +13,8 @@ $(".progress-bar").animate({
 
 const chart = () => {
   var canvas = document.getElementById('myChart');
+  var dataChart = JSON.parse(canvas.dataset.data);
+  // Chart.defaults.global.defaultFontColor = 'red';
   var ctx = canvas.getContext('2d');
   var chart = new Chart(ctx, {
       // The type of chart we want to create
@@ -20,20 +22,26 @@ const chart = () => {
 
       // The data for our dataset
       data: {
-          labels: ["Categories", "Physiques, Chimies & Technologies",
+          labels: ["Physiques, Chimies & Technologies",
            "Terre & Univers", "Les Vivants", "Sports & Santés",
             "Cultures & Sociétés", "Langues & Languages",
             "Mathématiques", "Histoires", "Techniques"],
           datasets: [{
-              label: "Your favorite categories",
-              backgroundColor: 'rgb(255, 99, 132)',
+              label: "",
+              backgroundColor: 'rgba(255, 99, 132, 0.3)',
               borderColor: 'rgb(255, 99, 132)',
-              data: [0, 20, 10, 5, 2, 20, 30, 45, 15, 10],
+              data: dataChart,
           }]
       },
 
       // Configuration options go here
-      options: {}
+      options: {
+        scale: {
+          pointLabels: {
+            fontSize: 20
+          }
+        }
+      }
   });
 }
 window.onload = chart();
