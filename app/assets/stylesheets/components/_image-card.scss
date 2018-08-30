@@ -2,6 +2,7 @@
   height: 350px;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
   border-radius: 0 0 5px 5px;
+  transition: all 0.2s ease-in-out;
 
   .card-img {
     height: 200px;
@@ -15,22 +16,23 @@
     // height: 250px;
   }
 
-  .play-button i:hover {
-    transition: all 0.5s ease-out;
+  .play-button:hover i {
+    transition: all 0.3s ease-out;
     opacity: 1;
   }
 
   .play-button i {
     color: lightgray;
-    margin-top: 100px;
     font-size: 2em;
     opacity: 0;
   }
 
   .play-button {
     text-align: center;
-
-
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .card-content {
@@ -56,4 +58,7 @@
       font-size: 12px;
     }
   }
+}
+.card:hover {
+  box-shadow: 0px 5px 6px 0px rgba(0, 0, 0, 0.1);
 }
