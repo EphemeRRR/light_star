@@ -7,7 +7,7 @@
   <%= form_tag videos_search_path, class: "search-bar-wrapper", method: :get do %>
     <%= text_field_tag :query,
       params[:query],
-      class: "form-control form-style",
+      class: "form-control devise-form-control-search",
       placeholder: "Find a video"
     %>
     <span class="input-group-btn">
