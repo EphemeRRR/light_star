@@ -2,6 +2,7 @@
   height: 350px;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
   border-radius: 0 0 5px 5px;
+  transition: all 0.2s ease-in-out;
 
   .card-img {
     height: 200px;
@@ -15,8 +16,8 @@
     // height: 250px;
   }
 
-  .play-button i:hover {
-    transition: all 0.5s ease-out;
+  .play-button:hover i {
+    transition: all 0.3s ease-out;
     opacity: 1;
   }
 
@@ -56,4 +57,7 @@
       font-size: 12px;
     }
   }
+}
+.card:hover {
+  box-shadow: 0px 5px 6px 0px rgba(0, 0, 0, 0.1);
 }
