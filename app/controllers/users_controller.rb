@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   def choose_categories
     count = [0..16]
     params['#{count}']
-    raise
   end
 
   private
