@@ -1,3 +1,9 @@
 <h1 class="text-center"><%= @video.title %></h1>
 
 <%= render 'iframe_video', video: @video %>
+
+<div class="container">
+  <p>Vidéo d'introduction : <%= @video.introduction %></p>
+  <p>Vidéo professionnalisante : <%= @video.pro %></p>
+  <p>Vidéo vérifiée : <%= @video.verified %></p>
+</div>
