@@ -106,3 +106,17 @@
   border-left: none;
 }
 
+.logo-responsive {
+  height: 50px;
+  width: 50px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: image-url('logo_small.png');
+}
+@media (min-width: 766px) {
+  .logo-responsive {
+    width: 130px;
+    background-image: image-url('logo.png');
+  }
+}
+
