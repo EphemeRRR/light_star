@@ -2,6 +2,12 @@ class UsersController < ApplicationController
   def show
     @user = User.friendly.find(params[:id])
     @data = calculate_scores
+    @all_sub_categories = SubCategory.all
+  end
+
+  def choose_categories
+    count = [0..16]
+    params['#{count}']
   end
 
   private

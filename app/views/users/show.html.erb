@@ -15,4 +15,11 @@
 </div>
 
 
+<%= form_tag({controller: "users", action: "choose_categories"}, method: "post", class: "") do %>
+  <% @all_sub_categories.each do |sub_category| %>
+    <%= check_box_tag(sub_category.id) %>
+    <%= label_tag(sub_category.id, "#{sub_category.name}") %>
+  <% end %>
+  <%= submit_tag("Submit") %>
+<% end %>
 
