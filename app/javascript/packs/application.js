@@ -28,8 +28,8 @@ const chart = () => {
             "Mathématiques", "Histoires", "Techniques"],
           datasets: [{
               label: "",
-              backgroundColor: 'rgba(255, 99, 132, 0.3)',
-              borderColor: 'rgb(255, 99, 132)',
+              backgroundColor: 'rgba(39,174,96,0.3)',
+              borderColor: 'rgb(39,174,96)',
               data: dataChart,
           }]
       },
