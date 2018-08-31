@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # No slashes or whitespaces allowed in username
-  validates :username, format: { :without => /[(\/|\s|\\)]/,
+  validates :username, uniqueness: true, format: { :without => /[(\/|\s|\\)]/,
     message: 'Your username cannot contain any spaces or slashes.' }
 
   has_many :histories, dependent: :destroy
