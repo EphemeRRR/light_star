@@ -12,6 +12,7 @@ class VideosController < ApplicationController
 
   def show
     #
+    create_history_and_increment_score
   end
 
   def search
@@ -27,5 +28,22 @@ class VideosController < ApplicationController
 
   def set_video
     @video = Video.find(params[:id])
+  end
+
+  def create_history_and_increment_score
+    if user_signed_in?
+      History.create(video: @video, user: current_user)
+      # Iterate through unique super_categories of video
+      @video.super_categories.uniq.each do |super_category|
+        # Get score that belongs to user for super category
+        score = super_category.scores.find_by(user: current_user)
+        # Create a score if it doesn't exist for the user
+        score = Score.create(super_category: super_category, user: current_user) if score == nil
+        # Get current viewed_videos score
+        new_score = (score.viewed_videos += 1)
+        # Increment viewed_videos score by one
+        score.update(viewed_videos: new_score)
+      end
+    end
   end
 end

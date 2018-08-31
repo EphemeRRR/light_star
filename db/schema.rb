@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2018_08_30_105624) do
     t.integer "viewing_time_seconds"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "viewed_videos"
+    t.integer "viewed_videos", default: 0
     t.index ["super_category_id"], name: "index_scores_on_super_category_id"
     t.index ["user_id"], name: "index_scores_on_user_id"
   end

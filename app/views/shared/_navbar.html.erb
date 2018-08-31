@@ -1,13 +1,14 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png", height: 50 %>
+
+    <div class="logo-responsive"></div>
   <% end %>
 
   <%= form_tag videos_search_path, class: "search-bar-wrapper", method: :get do %>
     <%= text_field_tag :query,
       params[:query],
-      class: "form-control form-style",
+      class: "form-control devise-form-control-search",
       placeholder: "Find a video"
     %>
     <span class="input-group-btn">
@@ -16,15 +17,6 @@
       <% end %>
     </span>
   <% end %>
-
-    <!-- <div class="search-bar-wrapper">
-      <input type="text" class="form-control devise-form-control-search" placeholder="Search">
-      <span class="input-group-btn">
-        <button class="btn btn-search btn-default" type="button">
-          <i class="text-secondary fas fa-search"></i>
-        </button>
-      </span>
-    </div> -->
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
