@@ -4,6 +4,9 @@ class UsersController < ApplicationController
     @data = calculate_scores
   end
 
+  def choose_categories
+   end
+
   private
 
   def calculate_scores

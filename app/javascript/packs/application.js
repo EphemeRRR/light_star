@@ -45,3 +45,29 @@ const chart = () => {
   });
 }
 window.onload = chart();
+
+
+$(document).ready(function(){
+  $(".buttton-image").click(function(){
+    $(this).toggleClass("activated");
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
