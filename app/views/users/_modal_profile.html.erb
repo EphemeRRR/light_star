@@ -14,8 +14,9 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="row">
+
           <%= form_tag({controller: "users", action: "recieve_interest_choices"}, method: "post", class: "") do %>
+            <div class="row">
             <% SubCategory.all.each do |sub_category| %>
              <div style="padding: 0;" class="col-xs-6 col-md-4">
                 <%= check_box_tag sub_category.id, class: 'checkbox-custom' %>
@@ -25,12 +26,12 @@
                </div> -->
               </div>
             <% end %>
+            </div>
+            <div class="modal-footer">
+              <%= submit_tag "Submit", class: 'btn btn-info', data: { dismiss: "modal" } %>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
           <% end %>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-       <%= submit_tag("Submit") %>
       </div>
     </div>
   </div>
