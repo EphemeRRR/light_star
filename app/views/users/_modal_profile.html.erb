@@ -17,14 +17,13 @@
 
           <%= form_tag({controller: "users", action: "recieve_interest_choices"}, method: "post", class: "") do %>
             <div class="row">
-            <% count = 1 %>
-            <% SubCategory.all.each do |sub_category| %>
-             <div style="padding: 0;"  class="col-xs-6 col-md-4" id="<%= count %>-sub-category">
+
+            <% SubCategory.all.each_with_index do |sub_category, index| %>
+             <div style="padding: 0;"  class="col-xs-6 col-md-4" id="<%= index + 1 %>-sub-category">
                 <%= check_box_tag sub_category.id, class: 'checkbox-custom' %>
 
-                <label style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= asset_path "#{count}-sub-category" %>);" class="buttton-image" for="<%= count %>"><%= sub_category.name %></label>
+                <label style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= asset_path "#{index + 1}-sub-category" %>);" class="buttton-image" for="<%= index + 1 %>"><%= sub_category.name %></label>
               </div>
-              <% count += 1 %>
             <% end %>
             </div>
             <div class="modal-footer">
