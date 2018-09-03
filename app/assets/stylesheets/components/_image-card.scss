@@ -64,3 +64,72 @@
 .card:hover {
   box-shadow: 0px 5px 6px 0px rgba(0, 0, 0, 0.1);
 }
+
+// Smaller cards
+
+.small-card {
+  margin: auto;
+  max-width: 265px;
+  height: 350px;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 5px 5px;
+  transition: all 0.2s ease-in-out;
+
+  .small-card-img {
+    height: 200px;
+    border-radius: 5px 5px 0 0;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .card-img:hover {
+    // transition: all 0.5s ease-out;
+    // height: 250px;
+  }
+
+  .play-button:hover i {
+    transition: all 0.3s ease-out;
+    opacity: 1;
+  }
+
+  .play-button i {
+    color: lightgray;
+    font-size: 2em;
+    opacity: 0;
+  }
+
+  .play-button {
+    text-align: center;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .small-card-content {
+    border-radius: 0 0 5px 5px;
+    background-color: #fff;
+    padding: 0 10px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .small-details {
+      display: flex;
+      justify-content: space-between;
+      font-size: 16px;
+    }
+
+    .small-description {
+      font-size: 18px;
+    }
+
+    .small-footer {
+      font-size: 12px;
+    }
+  }
+}
+.small-card:hover {
+  box-shadow: 0px 5px 6px 0px rgba(0, 0, 0, 0.1);
+}

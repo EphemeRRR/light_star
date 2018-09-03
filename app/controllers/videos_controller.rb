@@ -12,6 +12,7 @@ class VideosController < ApplicationController
 
   def show
     #
+    @videos = Video.all
     create_history_and_increment_score
   end
 
