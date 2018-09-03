@@ -1,5 +1,41 @@
-<div class="video-wrapper">
+<!-- <div class="video-wrapper">
   <div class="container">
-        <iframe  width="966" height="543" src="https://www.youtube.com/embed/<%= video.youtube_id %>?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+     <iframe   height="543" src="https://www.youtube.com/embed/<%= video.youtube_id %>?rel=0" frameborder="0" allow="autoplay; encrypted-media"     allowfullscreen>
+
+    </iframe>
+  </div>
+</div> -->
+
+<!-- <div class="container">
+  <div class="iframe-container">
+    <iframe src="https://www.youtube.com/embed/<%= video.youtube_id %>?rel=0" allowfullscreen></iframe>
+  </div>
+</div> -->
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <div class="iframe-container">
+        <iframe src="https://www.youtube.com/embed/<%= video.youtube_id %>?rel=0" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <div id="accordion">
+          <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Description ...
+              </button>
+            </h5>
+          </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body video-content">
+              <%= @video.description %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
