@@ -7,4 +7,8 @@
   <p>Vidéo d'introduction : <%= @video.introduction %></p>
   <p>Vidéo professionnalisante : <%= @video.pro %></p>
   <p>Vidéo vérifiée : <%= @video.verified %></p>
+  <p>Vidéo subcategories :</p>
+  <% @video_categories.each do |video_category| %>
+    <ul><li><%= video_category.sub_category.name %> => <%= video_category.relevance %>%</li></ul>
+  <% end %>
 </div>
