@@ -26,10 +26,11 @@
 
       <!-- Links when logged in -->
       <div class="navbar-wagon-item">
-        <%= link_to t(".profile", default: "Profile"), user_profile_path(current_user.slug), class: "navbar-wagon-item navbar-wagon-link" %>
         <%= link_to t(".sign_out", default: "Se déconnecter"), destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
         <%= link_to user_profile_path(current_user.slug) do %>
-          <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", id: "navbar-wagon-menu" %>
+
+            <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", id: "navbar-wagon-menu" %>
+
         <% end %>
       </div>
     <% else %>
