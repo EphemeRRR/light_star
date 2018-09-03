@@ -6,9 +6,26 @@
 }
 
 .recomandation {
+  padding: 10px;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  // border: 1px solid $secondary;
 }
 
 .wrapper-row {
+}
+
+.verified-wrapper  {
+
+}
+
+.verified p  {
+  opacity: 0;
+}
+
+.verified p:hover {
+  opacity: 1;
+  cursor: pointer;
 }
 
 .iframe-container {
@@ -36,7 +53,6 @@
   overflow: auto;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  transition: all 0.2s ease-in-out;
   border: 1px solid $secondary;
 }
 
