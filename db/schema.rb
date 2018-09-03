@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_03_081617) do
+ActiveRecord::Schema.define(version: 2018_09_03_081859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,17 +43,15 @@ ActiveRecord::Schema.define(version: 2018_09_03_081617) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "viewed_videos", default: 0
-    t.integer "interest_score", default: 0
     t.index ["super_category_id"], name: "index_scores_on_super_category_id"
     t.index ["user_id"], name: "index_scores_on_user_id"
   end
 
   create_table "skill_scores", force: :cascade do |t|
-    t.string "name"
     t.bigint "sub_category_id"
     t.bigint "user_id"
-    t.integer "viewed_videos"
-    t.integer "skill_score"
+    t.integer "viewed_videos", default: 0
+    t.integer "skill_score", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["sub_category_id"], name: "index_skill_scores_on_sub_category_id"
