@@ -60,10 +60,11 @@ a:hover {
   top: 15px;
   right: 15px;
   font-size: 12px;
-  color: $primary;
+  color: $secondary;
 }
 .top-left-link:hover {
   opacity: 0.5;
+  color: $secondary;
 }
 .position-relative {
   position: relative;
