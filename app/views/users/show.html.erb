@@ -1,20 +1,11 @@
-<h1 class="text-center"><%= @user.username %></h1>
 <p class="text-center"><%= render 'modal_profile' %></p>
 
 <div class="wrapper">
 <div class="container">
-  <div class="user-profile">
-    <%= render 'profile' %>
-  </div>
-  <div class="user-interests">
-    <%= render 'interests_graph' %>
-  </div>
-  <div class="user-jobs">
-    <%= render 'jobs' %>
-  </div>
-  <dov class="user-history">
-    <%= render 'history' %>
-  </dov>
+  <%= render 'profile', user: @user %>
+  <%= render 'interests_graph' %>
+  <%= render 'jobs' %>
+  <%= render 'history' %>
 </div>
 
 

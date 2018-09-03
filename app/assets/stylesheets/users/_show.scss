@@ -1,4 +1,20 @@
-.spider-chart {
-  // width: 300px;
-  // height: 150px;
+.chart-container {
+  padding: 15px;
+}
+.user-profile {
+  margin-bottom: 15px;
+  .profile-avatar {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+  }
+}
+.user-interests {
+  margin: 15px 0;
+}
+.user-jobs {
+  margin: 15px 0;
+}
+.user-history {
+  margin: 15px 0;
 }

@@ -32,9 +32,10 @@ const chart = () => {
 
       // Configuration options go here
       options: {
+        responsive: true,
         scale: {
           pointLabels: {
-            fontSize: 20
+            fontSize: 18
           }
         }
       }
