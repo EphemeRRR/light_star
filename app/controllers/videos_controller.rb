@@ -13,6 +13,7 @@ class VideosController < ApplicationController
   def show
     #
     create_history_and_increment_score
+    @video_categories = VideoCategory.where("video_id = #{@video.id}")
   end
 
   def search
