@@ -1,0 +1,33 @@
+.iframe-container {
+  overflow: hidden;
+  padding-top: 56.25%;
+  position: relative;
+}
+
+.iframe-container iframe {
+   border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;
+}
+
+/* 4x3 Aspect Ratio */
+.iframe-container-4x3 {
+  padding-top: 75%;
+}
+
+.video-content {
+  height: 250px;
+  overflow: auto;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid $secondary;
+}
+
+.headline {
+  margin-bottom: 100px;
+}
+
