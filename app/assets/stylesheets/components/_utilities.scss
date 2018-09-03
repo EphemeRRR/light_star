@@ -31,3 +31,14 @@ a:hover {
 .pad-bottom-30 {
   padding-bottom: 30px;
 }
+.light-star-card-border-top {
+  border-top: solid $secondary 4px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.light-star-card {
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}

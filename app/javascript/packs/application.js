@@ -7,10 +7,6 @@ import 'chart.js';
 //     })
 //   })
 
-$(".progress-bar").animate({
-    width: "70%"
-}, 1500);
-
 const chart = () => {
   var canvas = document.getElementById('myChart');
   var dataChart = JSON.parse(canvas.dataset.data);

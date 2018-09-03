@@ -1,5 +1,5 @@
 #myChart {
-  width: 1000px !important;
-  height: 500px !important;
+  min-width: 300px !important;
+  height: calc(width * 0.5) !important;
 }
 
