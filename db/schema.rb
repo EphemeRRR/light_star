@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_03_080629) do
+ActiveRecord::Schema.define(version: 2018_09_03_083426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,13 +39,25 @@ ActiveRecord::Schema.define(version: 2018_09_03_080629) do
   create_table "scores", force: :cascade do |t|
     t.bigint "super_category_id"
     t.bigint "user_id"
-    t.integer "viewing_time_seconds"
+    t.integer "viewing_time_seconds", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "viewed_videos", default: 0
     t.integer "interest_score", default: 0
     t.index ["super_category_id"], name: "index_scores_on_super_category_id"
     t.index ["user_id"], name: "index_scores_on_user_id"
+  end
+
+  create_table "skill_scores", force: :cascade do |t|
+    t.bigint "sub_category_id"
+    t.bigint "user_id"
+    t.integer "viewed_videos", default: 0
+    t.integer "skill_score", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "viewing_time_seconds", default: 0
+    t.index ["sub_category_id"], name: "index_skill_scores_on_sub_category_id"
+    t.index ["user_id"], name: "index_skill_scores_on_user_id"
   end
 
   create_table "sub_categories", force: :cascade do |t|
@@ -105,6 +117,8 @@ ActiveRecord::Schema.define(version: 2018_09_03_080629) do
   add_foreign_key "histories", "videos"
   add_foreign_key "scores", "super_categories"
   add_foreign_key "scores", "users"
+  add_foreign_key "skill_scores", "sub_categories"
+  add_foreign_key "skill_scores", "users"
   add_foreign_key "sub_categories", "super_categories"
   add_foreign_key "video_categories", "sub_categories"
   add_foreign_key "video_categories", "videos"

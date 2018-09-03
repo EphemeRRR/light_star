@@ -12,4 +12,5 @@ class User < ApplicationRecord
 
   has_many :histories, dependent: :destroy
   has_many :scores, dependent: :destroy
+  has_many :skill_scores, dependent: :destroy
 end
