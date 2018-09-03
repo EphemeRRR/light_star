@@ -11,6 +11,19 @@
 .wrapper-row {
 }
 
+.verified-wrapper  {
+
+}
+
+.verified p  {
+  opacity: 0;
+}
+
+.verified p:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
 .iframe-container {
   overflow: hidden;
   padding-top: 56.25%;
