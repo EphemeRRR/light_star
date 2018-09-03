@@ -1,9 +1,9 @@
 <div class="container">
   <div class="user-grid">
     <%= render 'profile', user: @user %>
-    <%= render 'interests_graph' %>
-    <%= render 'jobs' %>
-    <%= render 'history' %>
+    <%= render 'jobs', user: @user %>
+    <%= render 'interests_graph', user: @user %>
+    <%= render 'history', user: @user %>
   </div>
 </div>
 

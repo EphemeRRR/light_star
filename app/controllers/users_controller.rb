@@ -2,6 +2,10 @@ class UsersController < ApplicationController
   def show
     @user = User.friendly.find(params[:id])
     @data = calculate_scores
+    @labels = ["Physiques, Chimies & Technologies",
+           "Terre & Univers", "Les Vivants", "Sports & Santés",
+            "Cultures & Sociétés", "Langues & Languages",
+            "Mathématiques", "Histoires", "Techniques"]
   end
 
   def recieve_interest_choices

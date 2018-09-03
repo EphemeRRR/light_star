@@ -1,10 +1,6 @@
 .chart-container {
-  padding: 15px;
-  z-index: 2;
-}
-#myChart {
-  z-index: 2
-}
+      padding: 15px;
+    }
 .interests-modal {
   position: relative;
   z-index: 3;
@@ -24,6 +20,7 @@
   .user-info {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     padding: 15px;
   }
@@ -36,11 +33,19 @@
 .user-interests {
   margin: 15px 0;
   padding: 15px;
-  position: relative;
-  .interests-header {
-    position: absolute;
-    top: 15px;
-    left: 15px;
+  .graph-flex-container {
+    display: flex;
+    height: 100%;
+    .interests-header {
+      flex: 0 180px;
+      top: 15px;
+      left: 15px;
+      height: 100%
+    }
+    .chart-flex-container {
+      padding: 15px;
+      flex: 1 auto;
+    }
   }
 }
 .user-jobs {
@@ -54,7 +59,7 @@
 @media (min-width: 768px) {
   .user-grid {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
   }
   .user-profile {
@@ -63,20 +68,17 @@
     margin-right: 15px;
   }
   .user-interests {
-    grid-column: 2 / span 1;
-    grid-row: 1 / span 2;
-    margin-left: 15px;
-    margin-top: 0;
-    margin-bottom: 15px;
+    grid-column: 1 / span 4;
+    grid-row: 2 / span 2;
   }
   .user-jobs {
-    grid-column: 2 / span 1;
-    grid-row: 3 / span 1;
-    margin-left: 15px
+    grid-column: 2 / span 3;
+    grid-row: 1 / span 1;
+    margin-top: 0;
+    margin-left: 15px;
   }
   .user-history {
-    grid-column: 1 / span 1;
-    grid-row: 2 / span 2;
-    margin-right: 15px;
+    grid-column: 1 / span 4;
+    grid-row: 4 / span 1;
   }
 }

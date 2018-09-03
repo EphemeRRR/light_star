@@ -1,9 +1,13 @@
 <div class="user-interests light-star-card background-white">
-  <div class="interests-header">
-    <h2 class="margin-top-0">Vos interets</h2>
-    <%= render 'modal_profile' %>
-  </div>
-  <div class="chart-container" style="position: relative; height: 30vh; width: 60vw;">
-    <canvas id="myChart" data-data="<%= @data.to_json %>"></canvas>
+  <div class="graph-flex-container">
+    <div class="interests-header">
+      <h4 class="margin-top-0">Vos interets</h4>
+      <%= render 'modal_profile' %>
+    </div>
+    <div class="chart-flex-container">
+      <div class="chart-container" style="position: relative; height: 100%; width: 90%;">
+        <canvas id="myChart" data-labels="<%= @labels.to_json %>" data-data="<%= @data.to_json %>"></canvas>
+      </div>
+    </div>
   </div>
 </div>
