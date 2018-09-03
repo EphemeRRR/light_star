@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_31_111853) do
+ActiveRecord::Schema.define(version: 2018_09_03_080629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2018_08_31_111853) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "viewed_videos", default: 0
+    t.integer "interest_score", default: 0
     t.index ["super_category_id"], name: "index_scores_on_super_category_id"
     t.index ["user_id"], name: "index_scores_on_user_id"
   end
