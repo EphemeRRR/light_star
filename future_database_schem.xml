@@ -123,7 +123,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="496" y="269" name="interest_scores">
+<table x="496" y="269" name="scores">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -148,7 +148,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="132" y="217" name="schools or jobs">
+<table x="132" y="226" name="schools or jobs">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -173,6 +173,10 @@
 <row name="super_category_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="super_categories" row="id" />
+</row>
+<row name="parant_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="sub_categories" row="id" />
 </row>
 <key type="PRIMARY" name="">
 <part>id</part>
