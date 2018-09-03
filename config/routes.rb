@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   devise_for :users
   get 'videos/search', to: 'videos#search'
   get 'videos/:id', to: 'videos#show', as: 'video'

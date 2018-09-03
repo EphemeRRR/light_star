@@ -11,6 +11,11 @@ gem 'redis'
 
 gem 'friendly_id', '~> 5.1.0'
 
+# superadmin user
+gem 'activeadmin', github: 'activeadmin/activeadmin'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+
+
 # google-youtube api
 # gem 'google-api-client', '>0.7'
 gem 'yt', '~> 0.28.0'
