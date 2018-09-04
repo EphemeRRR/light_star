@@ -2,9 +2,10 @@
 <% if user_signed_in? %>
   <h1 class="text-center">Welcome</h1>
   <div class="container">
-
-    <h1>Recommended for you</h1>
-    <%= render 'iframe_img', videos: @videos %>
+    <% if @videos.empty? %>
+      <h1>Recommended for you</h1>
+      <%= render 'iframe_img', videos: @videos %>
+   <% end %>
    <% @sub_categories.each do |category| %>
       <% next if category.videos.empty? %>
       <h1><%= category.name %></h1>
