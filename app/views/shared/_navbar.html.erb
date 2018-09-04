@@ -29,7 +29,7 @@
         <%= link_to t(".sign_out", default: "Se déconnecter"), destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
         <%= link_to user_profile_path(current_user.slug) do %>
 
-            <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", id: "navbar-wagon-menu" %>
+        <%= cl_image_tag current_user.photo_id, width: 150, height: 150, crop: :thumb, gravity: :face, class: "avatar", id: "navbar-wagon-menu"%>
 
         <% end %>
       </div>
