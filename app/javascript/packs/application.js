@@ -13,10 +13,11 @@ const chart = () => {
   var chartLabels = JSON.parse(canvas.dataset.labels);
   Chart.defaults.global.defaultFontFamily = 'Roboto';
   Chart.defaults.global.legend = false;
+  Chart.defaults.global.defaultFontSize = 18;
   var ctx = canvas.getContext('2d');
   var chart = new Chart(ctx, {
       // The type of chart we want to create
-      type: 'bar',
+      type: 'horizontalBar',
 
       // The data for our dataset
       data: {
@@ -30,12 +31,18 @@ const chart = () => {
       },
       // Configuration options go here
       options: {
-        legend: {
-          labels: {
-            // This more specific font property overrides the global property
-            defaultFontSize: 0;
-          }
-        }
+        scales: {
+            xAxes: [{
+                        gridLines: {
+                            // color: "rgba(0, 0, 0, 0)",
+                        }
+                    }],
+            yAxes: [{
+                        gridLines: {
+                            // color: "rgba(0, 0, 0, 0)",
+                        }
+                    }]
+            }
       }
   });
 }
