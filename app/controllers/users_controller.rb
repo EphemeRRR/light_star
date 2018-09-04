@@ -1,16 +1,18 @@
 class UsersController < ApplicationController
   def show
     @user = User.friendly.find(params[:id])
-    @data = calculate_scores
-    @labels = ["Physiques, Chimies & Technologies",
-           "Terre & Univers", "Les Vivants", "Sports & Santés"]
-           #  ["Physiques, Chimies & Technologies",
-           # "Terre & Univers", "Les Vivants", "Sports & Santés",
-           #  "Cultures & Sociétés", "Langues & Languages",
-           #  "Mathématiques", "Histoires", "Techniques"]
+    # @data = calculate_scores
+    # @labels = ["Physiques, Chimies & Technologies",
+    #        "Terre & Univers", "Les Vivants", "Sports & Santés"]
+    #        #  ["Physiques, Chimies & Technologies",
+    #        # "Terre & Univers", "Les Vivants", "Sports & Santés",
+    #        #  "Cultures & Sociétés", "Langues & Languages",
+    #        #  "Mathématiques", "Histoires", "Techniques"]
+    @scores = @user.skill_scores
   end
 
   def recieve_interest_choices
+    raise
     get_sub_categories(params)
   end
 

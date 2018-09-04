@@ -15,6 +15,18 @@
       </div>
       <div class="modal-body">
 
+          <%= simple_form_for @user do |f| %>
+            <%= f.error_notification %>
+
+            <div class="form-inputs">
+              <%= f.assocation :skill_scores %>
+            </div>
+
+            <div class="form-actions">
+              <%= f.button :submit %>
+            </div>
+          <% end %>
+
           <%= form_tag({controller: "users", action: "recieve_interest_choices"}, method: "post", class: "") do %>
             <div class="row">
 
