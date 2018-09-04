@@ -14,7 +14,7 @@ const chart = () => {
   var chartLabels = JSON.parse(canvas.dataset.labels);
   Chart.defaults.global.defaultFontFamily = 'Roboto';
   Chart.defaults.global.legend = false;
-  Chart.defaults.global.defaultFontSize = 0;
+  Chart.defaults.global.defaultFontSize = 16;
   var ctx = canvas.getContext('2d');
   var chart = new Chart(ctx, {
       // The type of chart we want to create
@@ -34,16 +34,19 @@ const chart = () => {
       options: {
         scales: {
             xAxes: [{
-                        gridLines: {
-                            // color: "rgba(0, 0, 0, 0)",
-                        }
-                    }],
+                ticks: {
+                  display: false //this will remove only the label
+                },
+                gridLines: {
+                      // color: "rgba(0, 0, 0, 0)",
+                }
+            }],
             yAxes: [{
-                        gridLines: {
-                            // color: "rgba(0, 0, 0, 0)",
-                        }
-                    }]
-            }
+                gridLines: {
+                  // color: "rgba(0, 0, 0, 0)",
+                }
+            }]
+        }
       }
   });
 }
