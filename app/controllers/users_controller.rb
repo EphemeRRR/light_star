@@ -28,7 +28,13 @@ class UsersController < ApplicationController
   end
 
   def augment_user_scores(user_score_array)
-
+    @sub_categories = SubCategory.all
+    user_score_array.each do |id|
+      sub_category = SubCategory.find(id)
+      user_score = SkillScore.find_by(sub_category: sub_category, user: current_user)
+      user_score.skill_score += 20
+      raise
+    end
   end
 
   def calculate_scores
