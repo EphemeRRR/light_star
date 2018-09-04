@@ -15,27 +15,16 @@
       </div>
       <div class="modal-body">
 
-          <%= simple_form_for @user do |f| %>
-            <%= f.error_notification %>
-
-            <div class="form-inputs">
-              <%= f.assocation :skill_scores %>
-            </div>
-
-            <div class="form-actions">
-              <%= f.button :submit %>
-            </div>
-          <% end %>
-
           <%= form_tag({controller: "users", action: "recieve_interest_choices"}, method: "post", class: "") do %>
             <div class="row">
+            <% count = 1 %>
+            <% @scores.each do |score| %>
+             <div style="padding: 0;"  class="col-xs-6 col-md-4" id="<%= count %>-sub-category">
+                <%= check_box_tag 'score_ids[]', score.id, class: 'checkbox-custom' %>
 
-            <% SubCategory.all.each_with_index do |sub_category, index| %>
-             <div style="padding: 0;"  class="col-xs-6 col-md-4" id="<%= index + 1 %>-sub-category">
-                <%= check_box_tag sub_category.id, class: 'checkbox-custom' %>
-
-                <label style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= asset_path "#{index + 1}-sub-category" %>);" class="buttton-image" for="<%= sub_category.id %>"><%= sub_category.name %></label>
+                <label style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= asset_path "#{count}-sub-category" %>);" class="buttton-image" for="<%= score.id %>"><%= score.sub_category.name %></label>
               </div>
+              <% count += 1 %>
             <% end %>
             </div>
             <div class="modal-footer">
