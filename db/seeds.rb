@@ -12,10 +12,10 @@
 # SubCategory.destroy_all
 # Video.destroy_all
 # VideoCategory.destroy_all
-# User.destroy_all
+User.destroy_all
 # puts "cleaning completed"
 
-# user = User.create!(email: "francoismarie.verdier@gmail.com", password: "password", password_confirmation: "password", admin: true)
+user = User.create!(email: "francoismarie.verdier@gmail.com", password: "password", password_confirmation: "password", admin: true)
 
 # puts "creating super categories :"
 # cat1 = SuperCategory.create!(name: "Physiques, Chimies & Technologies")
@@ -209,12 +209,12 @@
 #   end
 # end
 
-Video.all.each do |video|
+# Video.all.each do |video|
 
-  vid = Yt::Video.new id: video.youtube_id
-  if video.channel == nil
-    video.channel = vid.channel_title
-    video.save
-  end
+#   vid = Yt::Video.new id: video.youtube_id
+#   if video.channel == nil
+#     video.channel = vid.channel_title
+#     video.save
+#   end
 
-end
+# end
