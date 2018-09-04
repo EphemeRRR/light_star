@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_many :scores, dependent: :destroy
   has_many :skill_scores, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :sub_categories, through: :skill_scores
 
   mount_uploader :photo_id, PhotoUploader
 

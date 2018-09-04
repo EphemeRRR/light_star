@@ -3,10 +3,27 @@ class VideosController < ApplicationController
   before_action :set_video, only: [:show]
 
   def index
-    # if user_signed_in?
+    if user_signed_in?
     #   # ... current_user.scores
     # else
-      @videos = Video.all
+      # @videos = Video.all
+      best_scores = current_user.skill_scores.order(skill_score: :DESC).first(2)
+      @videos = []
+      best_scores.each do |score|
+        if score.sub_category.videos.exists?
+          @videos << score.sub_category.videos.first(2) # videos
+        end
+      end
+      @videos.flatten!.uniq!
+    end
+
+      # @videos = videos.
+      # @videos = Video.find()
+      # current_user.sub_categories.each do |subcategory|
+      #   @recommended_videos = subcategory.skill_scores.order_by{ |score| score.skill_scores}
+      # end
+      # raise
+      @sub_categories = SubCategory.all
     # end
   end
 

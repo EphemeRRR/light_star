@@ -1,5 +1,5 @@
-<div class="user-profile light-star-card background-white">
-  <%= link_to "Modifier", edit_user_registration_path, class: 'top-left-link' %>
+<div class="user-profile light-star-card-border-top-no-hover background-white">
+  <%= link_to "Modifier", edit_user_registration_path, class: 'top-right-link' %>
   <div class="user-info">
     <%= cl_image_tag @user.photo_id, width: 150, height: 150, crop: :thumb, gravity: :face, class: "profile-avatar", id: "navbar-wagon-menu"%>
     <div>

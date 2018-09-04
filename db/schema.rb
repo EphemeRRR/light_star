@@ -138,6 +138,7 @@ ActiveRecord::Schema.define(version: 2018_09_04_155554) do
     t.boolean "verified"
     t.boolean "pro"
     t.boolean "introduction"
+    t.string "channel"
   end
 
   add_foreign_key "comments", "users"
