@@ -1,5 +1,6 @@
 import "bootstrap";
 import 'chart.js';
+// import 'jquery-ui';
 
 // $(document).on('ready',function(){
 //     $('.progress .progress-bar').css("width",function() {
@@ -55,7 +56,7 @@ $(document).ready(function(){
   });
   // Toggle see-more/see-less for histroy in user show
   $("#see-more").click(function(){
-    $('.user-history').toggleClass("history-see-less");
+    $('.user-history').toggleClass("history-see-less", 1000);
     if ($('.user-history').hasClass('history-see-less')) {
             $("#see-more").text("Voir plus...");
         } else {
