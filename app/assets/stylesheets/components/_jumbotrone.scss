@@ -1,11 +1,4 @@
-.jumbotron {
-  background-color: $off-white;
-}
-
 .jumbotrone-wrapper {
-  // display: flex;
-  // justify-content: space-around;
-
   background-color: $off-white;
   background-image: linear-gradient(-225deg, rgba(0,255,0,0.4) 0%, rgba(0,255,0,0.2) 50%), asset-url('jumbotrone-img1');
   background-size: cover;
@@ -17,15 +10,11 @@
   align-items: center;
 }
 
-.jumbotrone-img {
-
-  // min-width: 300px;
-  // flex: 0 0 50%;
+.btn-jumbotrone  {
+  font-size: 1.5em;
+  border-radius: 25px;
 }
 
 .max-width-content {
   max-width: 300px;
-
-
-  // flex: 0 0 50%;
 }
