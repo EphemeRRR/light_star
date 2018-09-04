@@ -1,18 +1,19 @@
 class UsersController < ApplicationController
   def show
     @user = User.friendly.find(params[:id])
-    @data = calculate_scores
-    @labels = ["Physiques, Chimies & Technologies",
-           "Terre & Univers", "Les Vivants", "Sports & Santés"]
-           #  ["Physiques, Chimies & Technologies",
-           # "Terre & Univers", "Les Vivants", "Sports & Santés",
-           #  "Cultures & Sociétés", "Langues & Languages",
-           #  "Mathématiques", "Histoires", "Techniques"]
-
     @history = get_simple_user_history
+    # @data = calculate_scores
+    # @labels = ["Physiques, Chimies & Technologies",
+    #        "Terre & Univers", "Les Vivants", "Sports & Santés"]
+    #        #  ["Physiques, Chimies & Technologies",
+    #        # "Terre & Univers", "Les Vivants", "Sports & Santés",
+    #        #  "Cultures & Sociétés", "Langues & Languages",
+    #        #  "Mathématiques", "Histoires", "Techniques"]
+    @scores = @user.skill_scores
   end
 
   def recieve_interest_choices
+    raise
     get_sub_categories(params)
   end
 
@@ -30,7 +31,13 @@ class UsersController < ApplicationController
   end
 
   def augment_user_scores(user_score_array)
-
+    @sub_categories = SubCategory.all
+    user_score_array.each do |id|
+      sub_category = SubCategory.find(id)
+      user_score = SkillScore.find_by(sub_category: sub_category, user: current_user)
+      user_score.skill_score += 20
+      raise
+    end
   end
 
   def calculate_scores
