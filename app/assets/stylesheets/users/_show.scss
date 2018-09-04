@@ -1,0 +1,84 @@
+.chart-container {
+      padding: 15px;
+    }
+.interests-modal {
+  position: relative;
+  z-index: 3;
+  color: $secondary;
+  padding: 0;
+}
+.interests-modal:hover {
+  opacity: 0.5;
+  color: $secondary;
+}
+.user-grid {
+  margin: 30px 0;
+}
+.user-profile {
+  margin-bottom: 15px;
+  position: relative;
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+  }
+  .profile-avatar {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+  }
+}
+.user-interests {
+  margin: 15px 0;
+  padding: 15px;
+  .graph-flex-container {
+    display: flex;
+    height: 100%;
+    .interests-header {
+      flex: 0 180px;
+      top: 15px;
+      left: 15px;
+      height: 100%
+    }
+    .chart-flex-container {
+      padding: 15px;
+      flex: 1 auto;
+    }
+  }
+}
+.user-jobs {
+  margin: 15px 0;
+  padding: 15px;
+}
+.user-history {
+  margin: 15px 0;
+  padding: 15px;
+}
+@media (min-width: 768px) {
+  .user-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  .user-profile {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    margin-right: 15px;
+  }
+  .user-interests {
+    grid-column: 1 / span 4;
+    grid-row: 2 / span 2;
+  }
+  .user-jobs {
+    grid-column: 2 / span 3;
+    grid-row: 1 / span 1;
+    margin-top: 0;
+    margin-left: 15px;
+  }
+  .user-history {
+    grid-column: 1 / span 4;
+    grid-row: 4 / span 1;
+  }
+}

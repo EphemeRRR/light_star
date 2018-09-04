@@ -1,0 +1,10 @@
+<div class="user-profile light-star-card background-white">
+  <%= link_to "Modifier", edit_user_registration_path, class: 'top-left-link' %>
+  <div class="user-info">
+    <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "profile-avatar", id: "navbar-wagon-menu" %>
+    <div>
+      <h4><%= user.username %></h4>
+      <p><%= user.email %></p>
+    </div>
+  </div>
+</div>

@@ -2,6 +2,12 @@ class UsersController < ApplicationController
   def show
     @user = User.friendly.find(params[:id])
     @data = calculate_scores
+    @labels = ["Physiques, Chimies & Technologies",
+           "Terre & Univers", "Les Vivants", "Sports & Santés"]
+           #  ["Physiques, Chimies & Technologies",
+           # "Terre & Univers", "Les Vivants", "Sports & Santés",
+           #  "Cultures & Sociétés", "Langues & Languages",
+           #  "Mathématiques", "Histoires", "Techniques"]
   end
 
   def recieve_interest_choices
@@ -37,7 +43,7 @@ class UsersController < ApplicationController
     historie = 4
     techniques = 36
 
-    [physique, terre, vivants, sports, cultures, langues, mathematiques, historie, techniques]
+    [physique, techniques, terre, vivants, sports]
 
   end
 end

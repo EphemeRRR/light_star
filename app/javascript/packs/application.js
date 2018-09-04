@@ -7,40 +7,42 @@ import 'chart.js';
 //     })
 //   })
 
-$(".progress-bar").animate({
-    width: "70%"
-}, 1500);
-
 const chart = () => {
   var canvas = document.getElementById('myChart');
   var dataChart = JSON.parse(canvas.dataset.data);
-  // Chart.defaults.global.defaultFontColor = 'red';
+  var chartLabels = JSON.parse(canvas.dataset.labels);
+  Chart.defaults.global.defaultFontFamily = 'Roboto';
+  Chart.defaults.global.legend = false;
+  Chart.defaults.global.defaultFontSize = 0;
   var ctx = canvas.getContext('2d');
   var chart = new Chart(ctx, {
       // The type of chart we want to create
-      type: 'radar',
+      type: 'bar',
 
       // The data for our dataset
       data: {
-          labels: ["Physiques, Chimies & Technologies",
-           "Terre & Univers", "Les Vivants", "Sports & Santés",
-            "Cultures & Sociétés", "Langues & Languages",
-            "Mathématiques", "Histoires", "Techniques"],
+          labels: chartLabels,
           datasets: [{
               label: "",
-              backgroundColor: 'rgba(39,174,96, 0.3)',
+              backgroundColor: 'rgba(39,174,96,0.9)',
               borderColor: 'rgb(39,174,96)',
               data: dataChart,
           }]
       },
-
       // Configuration options go here
       options: {
-        scale: {
-          pointLabels: {
-            fontSize: 20
-          }
-        }
+        scales: {
+            xAxes: [{
+                        gridLines: {
+                            // color: "rgba(0, 0, 0, 0)",
+                        }
+                    }],
+            yAxes: [{
+                        gridLines: {
+                            // color: "rgba(0, 0, 0, 0)",
+                        }
+                    }]
+            }
       }
   });
 }
@@ -52,23 +54,3 @@ $(document).ready(function(){
     $(this).toggleClass("activated");
   });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
