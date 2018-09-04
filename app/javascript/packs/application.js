@@ -55,11 +55,11 @@ $(document).ready(function(){
   });
   // Toggle see-more/see-less for histroy in user show
   $("#see-more").click(function(){
-    $('.user-history').toggleClass("history-see-less", 3000);
-    if (this.hasClass( "history-see-less" )) {
-            $("#see-more").innerHTML = "-";
+    $('.user-history').toggleClass("history-see-less");
+    if ($('.user-history').hasClass('history-see-less')) {
+            $("#see-more").text("Voir plus...");
         } else {
-            $("#see-more").innerHTML = "+";
+            $("#see-more").text(("Voir moins..."));
         }
   });
 });

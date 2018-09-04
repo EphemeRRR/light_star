@@ -1,6 +1,6 @@
 .chart-container {
       padding: 15px;
-    }
+}
 .interests-modal {
   position: relative;
   z-index: 3;
@@ -8,6 +8,7 @@
   padding: 0;
 }
 #see-more {
+  display: none;
   font-size: 12px;
   color: $secondary;
   cursor: pointer;
@@ -93,5 +94,8 @@
     height: 475px;
     overflow: hidden;
     transition: all 0.5s ease-in-out;
+  }
+  #see-more {
+    display: inline-block;
   }
 }
