@@ -12,7 +12,7 @@
 # SubCategory.destroy_all
 # Video.destroy_all
 # VideoCategory.destroy_all
-# User.destroy_all
+User.destroy_all
 # puts "cleaning completed"
 
 # user = User.create!(email: "francoismarie.verdier@gmail.com", password: "password", password_confirmation: "password", admin: true)
