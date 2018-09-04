@@ -15,6 +15,7 @@ class VideosController < ApplicationController
     @videos = Video.all
     create_history_and_increment_score
     @video_categories = VideoCategory.where("video_id = #{@video.id}")
+    @comments = Comment.where(video: @video)
   end
 
   def search
