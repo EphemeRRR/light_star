@@ -8,8 +8,8 @@ class UsersController < ApplicationController
            # "Terre & Univers", "Les Vivants", "Sports & Santés",
            #  "Cultures & Sociétés", "Langues & Languages",
            #  "Mathématiques", "Histoires", "Techniques"]
-    history = @user.histories.uniq_by { |video| video.id }
-    @uniq_history = history.last(10)
+
+    @history = get_simple_user_history
   end
 
   def recieve_interest_choices
@@ -47,5 +47,10 @@ class UsersController < ApplicationController
 
     [physique, techniques, terre, vivants, sports]
 
+  end
+
+  def get_simple_user_history
+    # Get most recent 10 videos, unique by video_id
+    self.histories.order(created_at: :desc).uniq { |history| history.video_id }.first(10)
   end
 end
