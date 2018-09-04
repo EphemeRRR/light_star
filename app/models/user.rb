@@ -16,6 +16,8 @@ class User < ApplicationRecord
   has_many :skill_scores, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  mount_uploader :photo_id, PhotoUploader
+
   private
 
   def create_scores
