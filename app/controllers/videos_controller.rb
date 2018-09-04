@@ -11,9 +11,10 @@ class VideosController < ApplicationController
       @videos = []
       best_scores.each do |score|
         if score.sub_category.videos.exists?
-          @videos << score.sub_category.videos # videos
+          @videos << score.sub_category.videos.first(2) # videos
         end
       end
+      @videos.flatten!.uniq!
 
       # @videos = videos.
       # @videos = Video.find()
