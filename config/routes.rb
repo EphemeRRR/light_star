@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
-  devise_for :users
   devise_for :users, controllers: { registrations: 'users/registrations' }
   get 'videos/search', to: 'videos#search'
   # get 'videos/:id', to: 'videos#show', as: 'video'
@@ -8,7 +7,6 @@ Rails.application.routes.draw do
     resources :comments
   end
   root to: 'videos#index'
-
 
   # get ':id' always last line of roots
   get 'user/:id', to: 'users#show', as: 'user_profile'
