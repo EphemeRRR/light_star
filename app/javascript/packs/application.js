@@ -53,4 +53,26 @@ $(document).ready(function(){
   $(".buttton-image").click(function(){
     $(this).toggleClass("activated");
   });
+  // Toggle see-more/see-less for histroy in user show
+  $("#see-more").click(function(){
+    $('.user-history').toggleClass("history-see-less", 3000);
+    if (this.hasClass( "history-see-less" )) {
+            $("#see-more").innerHTML = "-";
+        } else {
+            $("#see-more").innerHTML = "+";
+        }
+  });
 });
+
+
+// const btnHistorySeeMore.querySelector('#see-more');
+// const toggleHistory = (event) => {
+//   btnHistorySeeMore.classList.toggleClass('history-see-less')
+//   btnHistorySeeMore.innerHTML = 'Voir moins...'
+// };
+
+// const listenToHistroyToggle = () => {
+//   btnHistorySeeMore.addEventListener('click', toggleHistory);
+// };
+
+// listenToHistroyToggle();
