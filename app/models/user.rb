@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  after_create :create_scores
   extend FriendlyId
   friendly_id :username, use: :slugged
   # Include default devise modules. Others available are:
@@ -14,4 +15,13 @@ class User < ApplicationRecord
   has_many :scores, dependent: :destroy
   has_many :skill_scores, dependent: :destroy
   has_many :comments, dependent: :destroy
+
+  private
+
+  def create_scores
+    sub_categories = SubCategory.all
+    sub_categories.each do |subcategory|
+      SkillScore.create(sub_category: subcategory, user: self)
+    end
+  end
 end
