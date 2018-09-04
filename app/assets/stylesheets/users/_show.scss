@@ -81,4 +81,8 @@
     grid-column: 1 / span 4;
     grid-row: 4 / span 1;
   }
+  .history-see-less {
+    max-height: 410px;
+    overflow: hidden;
+  }
 }

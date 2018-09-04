@@ -51,6 +51,6 @@ class UsersController < ApplicationController
 
   def get_simple_user_history
     # Get most recent 10 videos, unique by video_id
-    self.histories.order(created_at: :desc).uniq { |history| history.video_id }.first(10)
+    @user.histories.order(created_at: :desc).uniq { |history| history.video_id }.first(10)
   end
 end
