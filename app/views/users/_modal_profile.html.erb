@@ -20,9 +20,10 @@
             <% count = 1 %>
             <% @scores.each do |score| %>
              <div style="padding: 0;"  class="col-xs-6 col-md-4" id="<%= count %>-sub-category">
-                <%= check_box_tag 'score_ids[]', score.id, class: 'checkbox-custom' %>
 
-                <label style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= asset_path "#{count}-sub-category" %>);" class="buttton-image" for="<%= score.id %>"><%= score.sub_category.name %></label>
+                <%= check_box_tag score.id, score.checked, score.checked, class: 'checkbox-custom' %>
+
+                <label style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= asset_path "#{count}-sub-category" %>);" class="buttton-image <%= 'activated' if score.checked %>" for="<%= score.id %>"><%= score.sub_category.name %></label>
               </div>
               <% count += 1 %>
             <% end %>
