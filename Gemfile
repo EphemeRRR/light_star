@@ -22,6 +22,7 @@ gem 'yt', '~> 0.28.0'
 
 # user photos
 gem 'cloudinary'
+gem 'carrierwave', '~> 1.2'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
