@@ -1,6 +1,15 @@
-<h1 class="text-center">Welcome</h1>
-<div class="container">
-  <%= render 'iframe_img', videos: @videos %>
-</div>
 
+<% if user_signed_in? %>
+  <h1 class="text-center">Welcome</h1>
+  <div class="container">
+    <%= render 'iframe_img', videos: @videos %>
+  </div>
+<% else %>
+
+    <%= render 'jumbotrone' %></div>
+
+  <div class="container">
+    <%= render 'iframe_img', videos: @videos %>
+  </div>
+<% end %>
 
