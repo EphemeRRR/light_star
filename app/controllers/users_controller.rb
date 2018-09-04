@@ -8,6 +8,8 @@ class UsersController < ApplicationController
            # "Terre & Univers", "Les Vivants", "Sports & Santés",
            #  "Cultures & Sociétés", "Langues & Languages",
            #  "Mathématiques", "Histoires", "Techniques"]
+    history = @user.histories.uniq_by { |video| video.id }
+    @uniq_history = history.last(10)
   end
 
   def recieve_interest_choices
