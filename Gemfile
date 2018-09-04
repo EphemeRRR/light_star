@@ -20,6 +20,9 @@ gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 # gem 'google-api-client', '>0.7'
 gem 'yt', '~> 0.28.0'
 
+# user photos
+gem 'cloudinary'
+gem 'carrierwave', '~> 1.2'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'

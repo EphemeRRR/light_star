@@ -1,7 +1,7 @@
 <div class="user-profile light-star-card-border-top-no-hover background-white">
   <%= link_to "Modifier", edit_user_registration_path, class: 'top-right-link' %>
   <div class="user-info">
-    <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "profile-avatar", id: "navbar-wagon-menu" %>
+    <%= cl_image_tag @user.photo_id, width: 150, height: 150, crop: :thumb, gravity: :face, class: "profile-avatar", id: "navbar-wagon-menu"%>
     <div>
       <h4><%= user.username %></h4>
       <p><%= user.email %></p>

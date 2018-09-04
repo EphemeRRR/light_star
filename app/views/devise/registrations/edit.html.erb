@@ -9,6 +9,8 @@
                     required: true,
                     autofocus: true ,
                     input_html: { autocomplete: "username", class: 'devise-form-control' }%>
+        <%= f.input :photo_id, class: 'devise-form-control' %>
+        <%= f.input :photo_id_cache, as: :hidden %>
         <%= f.input :email, required: true, input_html: { class: 'devise-form-control' } %>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
