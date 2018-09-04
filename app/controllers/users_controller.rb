@@ -25,6 +25,7 @@ class UsersController < ApplicationController
     # of array which is the sub_category_id
     sub_category_ids = params_array[2..-4].map { |array| array[0] }
     augment_user_scores(sub_category_ids)
+    raise
   end
 
   def augment_user_scores(user_score_array)
