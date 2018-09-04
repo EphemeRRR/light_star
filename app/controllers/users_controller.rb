@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.friendly.find(params[:id])
+    @history = get_simple_user_history
     # @data = calculate_scores
     # @labels = ["Physiques, Chimies & Technologies",
     #        "Terre & Univers", "Les Vivants", "Sports & Santés"]
@@ -53,5 +54,10 @@ class UsersController < ApplicationController
 
     [physique, techniques, terre, vivants, sports]
 
+  end
+
+  def get_simple_user_history
+    # Get most recent 10 videos, unique by video_id
+    @user.histories.order(created_at: :desc).uniq { |history| history.video_id }.first(10)
   end
 end
