@@ -8,8 +8,10 @@
    <% end %>
    <% @sub_categories.each do |category| %>
       <% next if category.videos.empty? %>
-      <h4><%= category.name %></h4>
-          <%= render 'iframe_img', videos: category.videos.first(4) %>
+        <h4><%= category.name %></h4>
+        <%= render 'iframe_img_6', videos: category.videos.first(6) %>
+      <% end %>
+
     <% end %>
   </div>
 <% else %>
@@ -19,7 +21,7 @@
     <% @sub_categories.each do |category| %>
       <% next if category.videos.empty? %>
       <h4><%= category.name %></h4>
-          <%= render 'iframe_img', videos: category.videos.first(4) %>
+          <%= render 'iframe_img_6', videos: category.videos.first(6) %>
     <% end %>
   </div>
 <% end %>

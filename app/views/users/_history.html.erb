@@ -2,23 +2,27 @@
   <h4 class="margin-top-0">Récemment regardées</h4> <span id="see-more">Voir plus...</span>
   <div class="row">
     <% @history.each do |history| %>
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 pad-top-bottom-15">
+      <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2 pad-top-bottom-15">
         <%= link_to video_path(history.video) do %>
           <div class="card">
             <div class="card-img" style="background-image: url('https://img.youtube.com/vi/<%= history.video.youtube_id %>/0.jpg')">
               <div class="play-button"><i class="fas fa-play-circle"></i></div>
             </div>
-            <div class="card-content">
-              <div class="details">
-                <p><i class="far fa-comments"></i></p>
-                <p><i class="far fa-eye"></i></p>
-                <p><i class="far fa-clock"></i> <%= history.video.duration_seconds / 60 %>:<%= "%.2i" %(history.video.duration_seconds % 60) %> </p>
-              </div>
-              <div class="description">
-                <p><%= history.video.title %></p>
-              </div>
-              <div class="footer">
-                <p><%= history.video.channel %></p>
+            <div class="card-content-responsive-wrapper-small">
+              <div class="card-content">
+                <div class="fixed-height-20">
+                  <div class="details">
+                    <p><i class="far fa-comments"></i></p>
+                    <p><i class="far fa-eye"></i></p>
+                    <p><i class="far fa-clock"></i> <%= history.video.duration_seconds / 60 %>:<%= "%.2i" %(history.video.duration_seconds % 60) %> </p>
+                  </div>
+                </div>
+                <div class="description">
+                  <p><%= history.video.title %></p>
+                </div>
+                <div class="footer">
+                  <p><%= history.video.channel %></p>
+                </div>
               </div>
             </div>
           </div>
