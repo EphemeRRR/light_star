@@ -12,6 +12,11 @@ class UsersController < ApplicationController
     @scores = @user.skill_scores
   end
 
+  def interests
+    @user = User.friendly.find(params[:id])
+    @scores = @user.skill_scores
+  end
+
   def recieve_interest_choices
     raise
     get_sub_categories(params)

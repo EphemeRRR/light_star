@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   root to: 'videos#index'
 
+  get 'user/:id/interests', to: 'users#interests', as: 'user_interests'
   # get ':id' always last line of roots
   get 'user/:id', to: 'users#show', as: 'user_profile'
   post 'user/recieve_interest_choices', to: 'users#recieve_interest_choices'
