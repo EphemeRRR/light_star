@@ -6,6 +6,8 @@ class UsersController < ApplicationController
     @data = data_and_labels.map { |e| e[0] }
     @labels = data_and_labels.map { |e| e[1] }
     @scores = get_user_skill_scores_for_form(@user)
+    # recommended_jobs
+    @jobs = Job.all
   end
 
   def interests
@@ -76,4 +78,17 @@ class UsersController < ApplicationController
     # Get most recent 10 videos, unique by video_id
     @user.histories.order(updated_at: :desc).uniq { |history| history.video_id }.first(12)
   end
+
+  # def recommended_jobs
+  #   best_scores = current_user.skill_scores.order(skill_score: :DESC).first(2)
+  #   @jobs = []
+  #   best_scores.each do |score|
+  #     if score.sub_category.jobs.exists?
+  #       @jobs << score.sub_category.jobs.first(2) # jobs
+  #     end
+  #   end
+  #   # Flatten and uniq if array not empty
+  #   @jobs.flatten!.uniq! if @jobs.any?
+  #   @jobs
+  # end
 end
