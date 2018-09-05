@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     uncheck_and_zero_all_user_scores(user)
     skill_scores = get_skill_scores(params)
     check_and_augment_skill_scores(skill_scores, skill_scores.count)
+    flash[:notice] = "Tes interets ont été bien sauvegardés !"
     redirect_to user_profile_path(user)
   end
 
@@ -74,6 +75,6 @@ class UsersController < ApplicationController
 
   def get_simple_user_history
     # Get most recent 10 videos, unique by video_id
-    @user.histories.order(updated_at: :desc).uniq { |history| history.video_id }.first(12)
+    @user.histories.order(updated_at: :desc).uniq { |history| history.video_id }.first(6)
   end
 end
