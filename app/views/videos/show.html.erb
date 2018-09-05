@@ -56,11 +56,12 @@
       </div>
       <div class="recomandation">
         <%= render 'calculater' %>
-
+      <% if user_signed_in? %>
        <%= simple_form_for @history, method: :patch do |f| %>
          <%= f.input :note, as: :text, :input_html => {style: 'height:80vh;'} %>
          <%= f.input :id, as: :hidden %>
          <%= f.button :submit, class: 'btn btn-success' %>
+       <% end %>
        <% end %>
       </div>
     </div>
