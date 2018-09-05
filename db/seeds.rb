@@ -74,6 +74,24 @@ cat54.super_category = cat5
 cat54.save
 puts "adding #{SubCategory.all.count} sub categories in db."
 
+
+job1 = Job.new(title: "Médecin", url: "https://fr.wikipedia.org/wiki/Médecin")
+job1.sub_category = cat42
+job1.save
+
+job2 = Job.new(title: "Développeur", url: "https://fr.wikipedia.org/wiki/Développeur")
+job2.sub_category = cat11
+job2.save
+
+job3 = Job.new(title: "Laborantin", url: "https://fr.wikipedia.org/wiki/Technicien_de_laboratoire")
+job3.sub_category = cat12
+job3.save
+
+job3 = Job.new(title: "Barman", url: "https://fr.wikipedia.org/wiki/barman")
+job3.sub_category = cat51
+job3.save
+
+
 categories = %w(sciences-de-la-vie espace physique sante sciences-sociales chimie maths technologie-innovation systeme-terre passe politique environnement)
 
 categories.each do |category|
@@ -104,6 +122,7 @@ categories.each do |category|
     subcategory = SubCategory.find_by(name: "Environnement")
   end
 
+  count = 0
   for i in (1..10)
     html_content = open("#{cafe_html}#{i}").read
     doc = Nokogiri::HTML(html_content)
@@ -129,10 +148,9 @@ categories.each do |category|
 
       end
     end
-    puts "Hé hé"
-
+    count += 1
   end
-  puts "YEAH !!!"
+  puts "add #{count} videos in #{category}"
 
 end
 
