@@ -58,6 +58,7 @@ class VideosController < ApplicationController
       if history == nil
         History.create(video: @video, user: current_user)
       else
+        history.touch
         history
       end
     end
