@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     #        # "Terre & Univers", "Les Vivants", "Sports & Santés",
     #        #  "Cultures & Sociétés", "Langues & Languages",
     #        #  "Mathématiques", "Histoires", "Techniques"]
-    @scores = @user.skill_scores
+    @scores = @user.skill_scores.sort_by {|score| score.sub_category.name}
   end
 
   def interests
@@ -18,14 +18,20 @@ class UsersController < ApplicationController
   end
 
   def skill_scores
-    # user = get_user_from_skill_scores
-    get_skill_scores(params)
+    user = User.find(params[:user])
+    all_user_skill_scores_unchecked(user)
+    skill_scores = get_skill_scores(params)
+    check_skill_scores(skill_scores)
+    redirect_to user_profile_path(user)
   end
 
   private
 
   def all_user_skill_scores_unchecked(user)
-
+    user.skill_scores.each do |skill_score|
+      skill_score.checked = false
+      skill_score.save
+    end
   end
 
   def get_skill_scores(params)
@@ -35,9 +41,16 @@ class UsersController < ApplicationController
     params.each { |param| params_array << param }
     # Each parameter was an array, now take only first value
     # of array which is the skill_score_id
-    skill_score_ids = params_array[2..-4].map { |array| array[0] }
-    # skill_scores = skill_score_ids.map { |id| SkillScore.find(id) }
-    raise
+    skill_score_ids = params_array[3..-4].map { |array| array[0] }
+    skill_scores = skill_score_ids.map { |id| SkillScore.find(id) }
+    # raise
+  end
+
+  def check_skill_scores(skill_scores)
+    skill_scores.each do |skill_score|
+      skill_score.checked = true
+      skill_score.save
+    end
   end
 
   def augment_user_scores(user_score_array)
