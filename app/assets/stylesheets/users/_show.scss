@@ -51,6 +51,20 @@
       left: 15px;
       height: 100%
     }
+    .graph-list {
+      margin-top: 15px;
+      font-size: 14px;
+      list-style-type: none;
+      padding: 0;
+      color: rgb(100,100,100);
+    }
+    .data-value {
+      display: inline-block;
+      margin-right: 5px;
+      margin-top: 10px;
+      font-size: 18px;
+      color: $secondary;
+    }
     .chart-flex-container {
       padding: 15px;
       flex: 1 auto;
