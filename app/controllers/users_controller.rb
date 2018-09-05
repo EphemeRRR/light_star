@@ -20,9 +20,9 @@ class UsersController < ApplicationController
 
   def skill_scores
     user = User.find(params[:user])
-    all_user_skill_scores_unchecked(user)
+    uncheck_and_zero_all_user_scores(user)
     skill_scores = get_skill_scores(params)
-    check_skill_scores(skill_scores)
+    check_and_augment_skill_scores(skill_scores, skill_scores.count)
     redirect_to user_profile_path(user)
   end
 
@@ -32,9 +32,10 @@ class UsersController < ApplicationController
     user.skill_scores.sort_by { |score| score.sub_category.name }
   end
 
-  def all_user_skill_scores_unchecked(user)
+  def uncheck_and_zero_all_user_scores(user)
     user.skill_scores.each do |skill_score|
       skill_score.checked = false
+      skill_score.skill_score = 0
       skill_score.save
     end
   end
@@ -51,9 +52,11 @@ class UsersController < ApplicationController
     # raise
   end
 
-  def check_skill_scores(skill_scores)
+  def check_and_augment_skill_scores(skill_scores, number)
+    skill_score_value = (100 / number)
     skill_scores.each do |skill_score|
       skill_score.checked = true
+      skill_score.skill_score = skill_score_value
       skill_score.save
     end
   end
