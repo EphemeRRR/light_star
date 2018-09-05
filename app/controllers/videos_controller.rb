@@ -69,8 +69,11 @@ class VideosController < ApplicationController
     @video.super_categories.uniq.each do |super_category|
       # Get score that belongs to user for super category
       score = super_category.scores.find_by(user: current_user)
-      # Create a score if it doesn't exist for the user
-      score = Score.create(super_category: super_category, user: current_user) if score == nil
+
+      # ====================================================
+      # Must create interest scores automatically on sign_up
+      # ====================================================
+
       # Get current viewed_videos score
       new_viewed_videos_score = (score.viewed_videos += 1)
       # Get current interest score
@@ -85,8 +88,6 @@ class VideosController < ApplicationController
     @video.sub_categories.uniq.each do |sub_category|
       # Get score that belongs to user for sub category
       score = sub_category.skill_scores.find_by(user: current_user)
-      # Create a score if it doesn't exist for the user
-      score = Score.create(sub_category: sub_category, user: current_user) if score == nil
       # Get current viewed_videos score
       new_viewed_videos_score = (score.viewed_videos += 1)
       # Get current skill score
