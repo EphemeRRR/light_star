@@ -119,6 +119,9 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="Users" row="id" />
 </row>
+<row name="note" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
