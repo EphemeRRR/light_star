@@ -13,9 +13,9 @@
       <% end %>
   </div>
 <% else %>
-  <div class="padding-15"></div>
   <%= render 'jumbotrone' %></div>
   <div class="container">
+  <div class="padding-15"></div>
     <% @sub_categories.each do |category| %>
       <% next if category.videos.empty? %>
       <h4><%= category.name %></h4>
