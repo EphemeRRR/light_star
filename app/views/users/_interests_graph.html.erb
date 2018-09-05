@@ -2,7 +2,9 @@
   <div class="graph-flex-container">
     <div class="interests-header">
       <h4 class="margin-top-0">Vos interets</h4>
-      <%= render 'modal_profile' %>
+      <% if current_user == @user %>
+        <%= render 'modal_profile' %>
+      <% end %>
     </div>
     <div class="chart-flex-container">
       <div class="chart-container" style="position: relative; height: 100%; width: 90%;">

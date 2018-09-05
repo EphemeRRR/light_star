@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
   def interests
     @user = User.friendly.find(params[:id])
+    redirect_to root_path unless current_user == @user
     @scores = get_user_skill_scores_for_form(@user)
   end
 
