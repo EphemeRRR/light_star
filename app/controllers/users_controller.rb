@@ -9,12 +9,12 @@ class UsersController < ApplicationController
     #        # "Terre & Univers", "Les Vivants", "Sports & Santés",
     #        #  "Cultures & Sociétés", "Langues & Languages",
     #        #  "Mathématiques", "Histoires", "Techniques"]
-    @scores = @user.skill_scores.sort_by {|score| score.sub_category.name}
+    @scores = get_user_skill_scores_for_form(@user)
   end
 
   def interests
     @user = User.friendly.find(params[:id])
-    @scores = @user.skill_scores
+    @scores = get_user_skill_scores_for_form(@user)
   end
 
   def skill_scores
@@ -26,6 +26,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def get_user_skill_scores_for_form(user)
+    user.skill_scores.sort_by { |score| score.sub_category.name }
+  end
 
   def all_user_skill_scores_unchecked(user)
     user.skill_scores.each do |skill_score|
