@@ -1,0 +1,52 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.color {
+  background: linear-gradient(to right, #bd2130, #004085 );
+  height: 50vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+.button {
+  width: 50px;
+  height: 50px;
+  font-size: 25px;
+  margin: 2px;
+  cursor: pointer;
+  background: #6c757d;
+  border: none;
+  color: white;
+}
+
+.textview {
+  width: 210px;
+  margin: 5px;
+  font-size: 25px;
+  padding: 5px;
+  border: none;
+  color: #6c757d;
+}
+
+.insert {
+  width: 106px;
+}
+
+.equals {
+  height: 106px;
+}
+
+.main {
+  // // position: absolute;
+  // top: 50%;
+  // transform: translateX(-50%) translateY(-50%);
+
+}
+
+

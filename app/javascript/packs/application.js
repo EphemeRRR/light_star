@@ -1,5 +1,6 @@
 import "bootstrap";
 import 'chart.js';
+import 'popper.js';
 // import 'jquery-ui';
 
 // $(document).on('ready',function(){
@@ -65,6 +66,27 @@ $(document).ready(function(){
           $("#see-more").text(("Voir moins..."));
       }
 });
+
+function insert(num) {
+  document.form.textview.value = document.form.textview.value+num
+}
+
+function equal() {
+  let exp = document.form.textview.value;
+  if(exp) {
+      document.form.textview.value = eval(exp);
+  }
+}
+
+function clean(){
+  document.form.textview.value = "";
+}
+
+function back(){
+  let exp = document.form.textview.value;
+  document.form.textview.value = exp.substring(0,exp.length-1);
+}
+
 
 
 // const btnHistorySeeMore.querySelector('#see-more');
