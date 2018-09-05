@@ -8,10 +8,12 @@
             </div>
             <div class="card-content-responsive-wrapper-small">
               <div class="card-content">
-                <div class="details">
-                  <p><i class="far fa-comments"></i></p>
-                  <p><i class="far fa-eye"></i></p>
-                  <p><i class="far fa-clock"></i> <%= video.duration_seconds / 60 %>:<%= "%.2i" %(video.duration_seconds % 60) %> </p>
+                <div class="fixed-height-20">
+                  <div class="details">
+                    <p><i class="far fa-comments"></i></p>
+                    <p><i class="far fa-eye"></i></p>
+                    <p><i class="far fa-clock"></i> <%= video.duration_seconds / 60 %>:<%= "%.2i" %(video.duration_seconds % 60) %> </p>
+                  </div>
                 </div>
                 <div class="description">
                   <p><%= video.title %></p>
