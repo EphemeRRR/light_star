@@ -87,9 +87,9 @@ job3 = Job.new(title: "Laborantin", url: "https://fr.wikipedia.org/wiki/Technici
 job3.sub_category = cat12
 job3.save
 
-job3 = Job.new(title: "Barman", url: "https://fr.wikipedia.org/wiki/barman")
-job3.sub_category = cat51
-job3.save
+job4 = Job.new(title: "Barman", url: "https://fr.wikipedia.org/wiki/barman")
+job4.sub_category = cat51
+job4.save
 
 
 categories = %w(sciences-de-la-vie espace physique sante sciences-sociales chimie maths technologie-innovation systeme-terre passe politique environnement)
