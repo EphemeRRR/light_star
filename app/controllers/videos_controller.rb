@@ -83,7 +83,7 @@ class VideosController < ApplicationController
     # Iterate through unique super_categories of video
     @video.sub_categories.uniq.each do |sub_category|
       # Get score that belongs to user for sub category
-      score = sub_category.scores.find_by(user: current_user)
+      score = sub_category.skill_scores.find_by(user: current_user)
       # Create a score if it doesn't exist for the user
       score = Score.create(sub_category: sub_category, user: current_user) if score == nil
       # Get current viewed_videos score
