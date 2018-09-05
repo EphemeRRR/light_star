@@ -11,7 +11,7 @@ class Video < ApplicationRecord
   include PgSearch
 
   pg_search_scope :global_search,
-    against: [ :title ],
+    against: [ :title, :channel ],
     associated_against: {
       sub_categories: [ :name ]
     },
