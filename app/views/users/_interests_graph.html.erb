@@ -5,6 +5,16 @@
       <% if current_user == @user %>
         <%= render 'modal_profile' %>
       <% end %>
+      <ul class="graph-list">
+        <% @labels.each_with_index do |label, index| %>
+          <li>
+              <div class="list-item-wrapper">
+                <div class="data-value"><%= @data[index] %></div>
+                <%= label %>
+              </div>
+          </li>
+        <% end %>
+      </ul>
     </div>
     <div class="chart-flex-container">
       <div class="chart-container" style="position: relative; height: 100%; width: 90%;">

@@ -65,7 +65,7 @@ class UsersController < ApplicationController
       [(score.skill_score + (score.viewed_videos * 2)), score.sub_category.name]
     end
     data = data.sort_by { |score| score[0] }
-    data.first(5)
+    data.first(5).reverse
   end
 
   def get_bar_chart_labels(user)
