@@ -16,6 +16,7 @@
       <div class="modal-body">
 
           <%= form_tag({controller: "users", action: "skill_scores"}, method: "post", class: "") do %>
+            <%= hidden_field_tag('user', value = @user.id) %>
             <div class="row">
             <% count = 1 %>
             <% @scores.each do |score| %>

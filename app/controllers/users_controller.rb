@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   end
 
   def skill_scores
+    # user = get_user_from_skill_scores
     get_skill_scores(params)
   end
 
@@ -35,7 +36,7 @@ class UsersController < ApplicationController
     # Each parameter was an array, now take only first value
     # of array which is the skill_score_id
     skill_score_ids = params_array[2..-4].map { |array| array[0] }
-    skill_scores = skill_score_ids.map { |id| SkillScore.find(id) }
+    # skill_scores = skill_score_ids.map { |id| SkillScore.find(id) }
     raise
   end
 
