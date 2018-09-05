@@ -33,8 +33,8 @@ class VideosController < ApplicationController
     @history = get_or_create_history
     @video_categories = VideoCategory.where("video_id = #{@video.id}")
     @comments = Comment.where(video: @video)
-    increment_skill_score
-    # increment_interest_score
+    increment_skill_score if user_signed_in?
+    # increment_interest_score if user_signed_in?
   end
 
   def search
