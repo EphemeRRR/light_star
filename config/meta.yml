@@ -1,4 +1,4 @@
 meta_product_name: "LightStar"
 meta_title: "LightStar - Apprendre en s'amusant"
 meta_description: "LightStar est un site de partage de vidéos de vulgarisation et d'éducation. Elle cherche à promouvoir la connaissance et à cultiver la jeunesse."
-meta_image: "LightStar.jpeg"                       # should exist in `app/assets/images/`
+meta_image: "LightStar.png"                       # should exist in `app/assets/images/`
