@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_05_094726) do
+ActiveRecord::Schema.define(version: 2018_09_05_154420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,15 @@ ActiveRecord::Schema.define(version: 2018_09_05_094726) do
     t.text "note", default: ""
     t.index ["user_id"], name: "index_histories_on_user_id"
     t.index ["video_id"], name: "index_histories_on_video_id"
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.string "title"
+    t.string "url"
+    t.bigint "sub_category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sub_category_id"], name: "index_jobs_on_sub_category_id"
   end
 
   create_table "scores", force: :cascade do |t|
@@ -146,6 +155,7 @@ ActiveRecord::Schema.define(version: 2018_09_05_094726) do
   add_foreign_key "comments", "videos"
   add_foreign_key "histories", "users"
   add_foreign_key "histories", "videos"
+  add_foreign_key "jobs", "sub_categories"
   add_foreign_key "scores", "super_categories"
   add_foreign_key "scores", "users"
   add_foreign_key "skill_scores", "sub_categories"
