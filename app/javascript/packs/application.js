@@ -8,6 +8,19 @@ import 'popper.js';
 //       return $(this).attr("aria-valuenow") + "%";
 //     })
 //   })
+$(document).ready(function(){
+  $(".buttton-image").click(function(){
+    $(this).toggleClass("activated");
+  });
+  // Toggle see-more/see-less for histroy in user show
+  $('.user-history').toggleClass("history-see-less", 1000);
+  if ($('.user-history').hasClass('history-see-less')) {
+          $("#see-more").text("Voir plus...");
+      } else {
+          $("#see-more").text(("Voir moins..."));
+      }
+});
+
 
 const chart = () => {
   var canvas = document.getElementById('myChart');
@@ -43,6 +56,9 @@ const chart = () => {
                 }
             }],
             yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                },
                 gridLines: {
                   // color: "rgba(0, 0, 0, 0)",
                 }
@@ -52,7 +68,6 @@ const chart = () => {
   });
 }
 window.onload = chart();
-
 
 $(document).ready(function(){
   $(".buttton-image").click(function(){
@@ -66,27 +81,6 @@ $(document).ready(function(){
           $("#see-more").text(("Voir moins..."));
       }
 });
-
-function insert(num) {
-  document.form.textview.value = document.form.textview.value+num
-}
-
-function equal() {
-  let exp = document.form.textview.value;
-  if(exp) {
-      document.form.textview.value = eval(exp);
-  }
-}
-
-function clean(){
-  document.form.textview.value = "";
-}
-
-function back(){
-  let exp = document.form.textview.value;
-  document.form.textview.value = exp.substring(0,exp.length-1);
-}
-
 
 
 // const btnHistorySeeMore.querySelector('#see-more');

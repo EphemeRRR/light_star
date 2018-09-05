@@ -14,7 +14,8 @@ class VideosController < ApplicationController
           @videos << score.sub_category.videos.first(2) # videos
         end
       end
-      @videos.flatten!.uniq!
+      # Flatten and uniq if array not empty
+      @videos.flatten!.uniq! if @videos.any?
     end
 
       # @videos = videos.
@@ -40,7 +41,7 @@ class VideosController < ApplicationController
     if params[:query].present?
       @videos = Video.global_search(params[:query])
     else
-     flash[:alert] = "Video does not exist!! Please search again."
+     flash[:alert] = "Nous mettons nos catégories à jour, merci de réessayer ta recherche plus tard."
      redirect_to root_path
     end
   end
