@@ -14,7 +14,8 @@ class VideosController < ApplicationController
           @videos << score.sub_category.videos.first(2) # videos
         end
       end
-      @videos.flatten!.uniq!
+      # Flatten and uniq if array not empty
+      @videos.flatten!.uniq! if @videos.any?
     end
 
       # @videos = videos.
