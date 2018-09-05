@@ -17,22 +17,26 @@ class UsersController < ApplicationController
     @scores = @user.skill_scores
   end
 
-  def recieve_interest_choices
-    raise
-    get_sub_categories(params)
+  def skill_scores
+    get_skill_scores(params)
   end
 
   private
 
-  def get_sub_categories(params)
+  def all_user_skill_scores_unchecked(user)
+
+  end
+
+  def get_skill_scores(params)
     # Define array to store parameters
     params_array = []
     # Grab only sub_category parameters
     params.each { |param| params_array << param }
-    # Each parameters was an array, now take only first value
-    # of array which is the sub_category_id
-    sub_category_ids = params_array[2..-4].map { |array| array[0] }
-    augment_user_scores(sub_category_ids)
+    # Each parameter was an array, now take only first value
+    # of array which is the skill_score_id
+    skill_score_ids = params_array[2..-4].map { |array| array[0] }
+    skill_scores = skill_score_ids.map { |id| SkillScore.find(id) }
+    raise
   end
 
   def augment_user_scores(user_score_array)
