@@ -3,12 +3,12 @@
   <h1 class="text-center">Welcome</h1>
   <div class="container">
     <% if @videos.empty? %>
-      <h1>Recommended for you</h1>
+      <h4>Recommended for you</h4>
       <%= render 'iframe_img', videos: @videos %>
    <% end %>
    <% @sub_categories.each do |category| %>
       <% next if category.videos.empty? %>
-      <h1><%= category.name %></h1>
+      <h4><%= category.name %></h4>
           <%= render 'iframe_img', videos: category.videos.first(4) %>
     <% end %>
   </div>
@@ -18,7 +18,7 @@
   <div class="container">
     <% @sub_categories.each do |category| %>
       <% next if category.videos.empty? %>
-      <h1><%= category.name %></h1>
+      <h4><%= category.name %></h4>
           <%= render 'iframe_img', videos: category.videos.first(4) %>
     <% end %>
   </div>
