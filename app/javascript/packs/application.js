@@ -55,6 +55,9 @@ const chart = () => {
                 }
             }],
             yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                },
                 gridLines: {
                   // color: "rgba(0, 0, 0, 0)",
                 }
