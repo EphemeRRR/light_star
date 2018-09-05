@@ -6,17 +6,19 @@
             <div class="card-img" style="background-image: url('https://img.youtube.com/vi/<%= video.youtube_id %>/0.jpg')">
               <div class="play-button"><i class="fas fa-play-circle"></i></div>
             </div>
-            <div class="card-content">
-              <div class="details">
-                <p><i class="far fa-comments"></i></p>
-                <p><i class="far fa-eye"></i></p>
-                <p><i class="far fa-clock"></i> <%= video.duration_seconds / 60 %>:<%= "%.2i" %(video.duration_seconds % 60) %> </p>
-              </div>
-              <div class="description">
-                <p><%= video.title %></p>
-              </div>
-              <div class="footer">
-                <p><%= video.channel %></p>
+            <div class="card-content-responsive-wrapper-small">
+              <div class="card-content">
+                <div class="details">
+                  <p><i class="far fa-comments"></i></p>
+                  <p><i class="far fa-eye"></i></p>
+                  <p><i class="far fa-clock"></i> <%= video.duration_seconds / 60 %>:<%= "%.2i" %(video.duration_seconds % 60) %> </p>
+                </div>
+                <div class="description">
+                  <p><%= video.title %></p>
+                </div>
+                <div class="footer">
+                  <p><%= video.channel %></p>
+                </div>
               </div>
             </div>
           </div>
