@@ -55,11 +55,18 @@
         </div>
       </div>
       <div class="recomandation">
-        <%= render 'note' %>
+        <%= render 'calculater' %>
+
+       <%= simple_form_for @history, method: :patch do |f| %>
+         <%= f.input :note, as: :text, :input_html => {style: 'height:80vh;'} %>
+         <%= f.input :id, as: :hidden %>
+         <%= f.button :submit, class: 'btn btn-success' %>
+       <% end %>
       </div>
     </div>
   </div>
 </div>
+
 
 <div class="container">
   <p>Vidéo d'introduction : <%= @video.introduction %></p>

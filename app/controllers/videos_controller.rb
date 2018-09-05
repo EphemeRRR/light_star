@@ -29,7 +29,6 @@ class VideosController < ApplicationController
   end
 
   def show
-    #
     @videos = Video.all
     @history = get_or_create_history
     @video_categories = VideoCategory.where("video_id = #{@video.id}")

@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   get 'user/:id/interests', to: 'users#interests', as: 'user_interests'
   # get ':id' always last line of roots
   get 'user/:id', to: 'users#show', as: 'user_profile'
+  
+  post 'user/recieve_interest_choices', to: 'users#recieve_interest_choices'
+  patch 'history', to: 'histories#update'
   post 'user/skill_scores', to: 'users#skill_scores'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
