@@ -1,9 +1,9 @@
 
 <% if user_signed_in? %>
-  <h1 class="text-center">Welcome</h1>
+  <div class="padding-15"></div>
   <div class="container">
-    <% if @videos.empty? %>
-      <h4>Recommended for you</h4>
+    <% if @videos.any? %>
+      <h3>Ce que tu pourrais aimer...</h3>
       <%= render 'iframe_img', videos: @videos %>
    <% end %>
    <% @sub_categories.each do |category| %>
@@ -13,7 +13,7 @@
       <% end %>
   </div>
 <% else %>
-
+  <div class="padding-15"></div>
   <%= render 'jumbotrone' %></div>
   <div class="container">
     <% @sub_categories.each do |category| %>

@@ -11,11 +11,16 @@ class VideosController < ApplicationController
       @videos = []
       best_scores.each do |score|
         if score.sub_category.videos.exists?
-          @videos << score.sub_category.videos.first(2) # videos
+          @videos << score.sub_category.videos.first(4) # videos
         end
       end
       # Flatten and uniq if array not empty
-      @videos.flatten!.uniq! if @videos.any?
+      if @videos.any?
+        @videos.flatten!.uniq!
+      else
+        @videos = []
+      end
+
     end
 
       # @videos = videos.
