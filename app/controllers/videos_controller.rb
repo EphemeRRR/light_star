@@ -33,8 +33,8 @@ class VideosController < ApplicationController
     @history = get_or_create_history
     @video_categories = VideoCategory.where("video_id = #{@video.id}")
     @comments = Comment.where(video: @video)
-    increment_interest_score
     increment_skill_score
+    # increment_interest_score
   end
 
   def search
@@ -59,6 +59,7 @@ class VideosController < ApplicationController
         History.create(video: @video, user: current_user)
       else
         history
+      end
     end
   end
 
