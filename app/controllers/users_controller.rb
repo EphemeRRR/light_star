@@ -2,13 +2,8 @@ class UsersController < ApplicationController
   def show
     @user = User.friendly.find(params[:id])
     @history = get_simple_user_history
-    # @data = calculate_scores
-    # @labels = ["Physiques, Chimies & Technologies",
-    #        "Terre & Univers", "Les Vivants", "Sports & Santés"]
-    #        #  ["Physiques, Chimies & Technologies",
-    #        # "Terre & Univers", "Les Vivants", "Sports & Santés",
-    #        #  "Cultures & Sociétés", "Langues & Languages",
-    #        #  "Mathématiques", "Histoires", "Techniques"]
+    @data = get_bar_chart_data(@user)
+    @labels = ['1','2','3','4','5']
     @scores = get_user_skill_scores_for_form(@user)
   end
 
@@ -61,34 +56,20 @@ class UsersController < ApplicationController
     end
   end
 
-  def augment_user_scores(user_score_array)
-    @sub_categories = SubCategory.all
-    user_score_array.each do |id|
-      sub_category = SubCategory.find(id)
-      user_score = SkillScore.find_by(sub_category: sub_category, user: current_user)
-      user_score.skill_score += 20
-      raise
+  def get_bar_chart_data(user)
+    skill_scores = user.skill_scores.where(checked: true)
+    data = skill_scores.map do |score|
+      score.skill_score + score.viewed_videos
     end
+    data.sort.first(5)
   end
 
-  def calculate_scores
-
-    physique = 45
-    terre = 22
-    vivants = 16
-    sports = 12
-    cultures = 45
-    langues = 40
-    mathematiques = 1
-    historie = 4
-    techniques = 36
-
-    [physique, techniques, terre, vivants, sports]
+  def get_bar_chart_labels(user)
 
   end
 
   def get_simple_user_history
     # Get most recent 10 videos, unique by video_id
-    @user.histories.order(created_at: :desc).uniq { |history| history.video_id }.first(10)
+    @user.histories.order(created_at: :desc).uniq { |history| history.video_id }.first(12)
   end
 end
