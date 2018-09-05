@@ -30,9 +30,11 @@ class VideosController < ApplicationController
   def show
     #
     @videos = Video.all
-    create_history_and_increment_score
+    @history = get_or_create_history
     @video_categories = VideoCategory.where("video_id = #{@video.id}")
     @comments = Comment.where(video: @video)
+    increment_interest_score
+    increment_skill_score
   end
 
   def search
@@ -50,20 +52,45 @@ class VideosController < ApplicationController
     @video = Video.find(params[:id])
   end
 
-  def create_history_and_increment_score
+  def get_or_create_history
     if user_signed_in?
-      History.create(video: @video, user: current_user)
-      # Iterate through unique super_categories of video
-      @video.super_categories.uniq.each do |super_category|
-        # Get score that belongs to user for super category
-        score = super_category.scores.find_by(user: current_user)
-        # Create a score if it doesn't exist for the user
-        score = Score.create(super_category: super_category, user: current_user) if score == nil
-        # Get current viewed_videos score
-        new_score = (score.viewed_videos += 1)
-        # Increment viewed_videos score by one
-        score.update(viewed_videos: new_score)
-      end
+      history = History.find_by(user: current_user, video: @video)
+      if history == nil
+        History.create(video: @video, user: current_user)
+      else
+        history
+    end
+  end
+
+  def increment_interest_score
+    # Iterate through unique super_categories of video
+    @video.super_categories.uniq.each do |super_category|
+      # Get score that belongs to user for super category
+      score = super_category.scores.find_by(user: current_user)
+      # Create a score if it doesn't exist for the user
+      score = Score.create(super_category: super_category, user: current_user) if score == nil
+      # Get current viewed_videos score
+      new_viewed_videos_score = (score.viewed_videos += 1)
+      # Get current interest score
+      new_interest_score = (score.interest_score += 1)
+      # Increment viewed_videos or interest score score by one
+      score.update(viewed_videos: new_viewed_videos_score, interest_score: new_interest_score)
+    end
+  end
+
+  def increment_skill_score
+    # Iterate through unique super_categories of video
+    @video.sub_categories.uniq.each do |sub_category|
+      # Get score that belongs to user for sub category
+      score = sub_category.scores.find_by(user: current_user)
+      # Create a score if it doesn't exist for the user
+      score = Score.create(sub_category: sub_category, user: current_user) if score == nil
+      # Get current viewed_videos score
+      new_viewed_videos_score = (score.viewed_videos += 1)
+      # Get current skill score
+      new_skill_score = (score.skill_score += 1)
+      # Increment viewed_videos or skill score score by one
+      score.update(viewed_videos: new_viewed_videos_score, skill_score: new_skill_score)
     end
   end
 end
