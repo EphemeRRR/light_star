@@ -2,8 +2,9 @@ class UsersController < ApplicationController
   def show
     @user = User.friendly.find(params[:id])
     @history = get_simple_user_history
-    @data = get_bar_chart_data(@user)
-    @labels = ['1','2','3','4','5']
+    data_and_labels = get_bar_chart_data(@user)
+    @data = data_and_labels.map { |e| e[0] }
+    @labels = data_and_labels.map { |e| e[1] }
     @scores = get_user_skill_scores_for_form(@user)
   end
 
@@ -58,10 +59,13 @@ class UsersController < ApplicationController
 
   def get_bar_chart_data(user)
     skill_scores = user.skill_scores.where(checked: true)
+    # data = []
+    # labels = []
     data = skill_scores.map do |score|
-      score.skill_score + score.viewed_videos
+      [(score.skill_score + (score.viewed_videos * 2)), score.sub_category.name]
     end
-    data.sort.first(5)
+    data = data.sort_by { |score| score[0] }
+    data.first(5)
   end
 
   def get_bar_chart_labels(user)
@@ -70,6 +74,6 @@ class UsersController < ApplicationController
 
   def get_simple_user_history
     # Get most recent 10 videos, unique by video_id
-    @user.histories.order(created_at: :desc).uniq { |history| history.video_id }.first(12)
+    @user.histories.order(updated_at: :desc).uniq { |history| history.video_id }.first(12)
   end
 end
