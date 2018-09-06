@@ -11,15 +11,19 @@
 // }
 
 function closeHelpDiv(){
-document.querySelector('.disappear-in-seconds').style.display="none";
+  document.querySelector('.disappear-in-seconds').style.display = "none";
 }
 
 function changeTextButton() {
   const button = document.querySelector('.recomandation');
-  button.insertAdjacentHTML('beforeend', '<span class="disappear-in-seconds">Updated</span>')
-  window.setTimeout("closeHelpDiv();", 3000);
+  const notice = document.querySelector('.disappear-in-seconds');
 
-
+  if (!notice) {
+    button.insertAdjacentHTML('beforeend', '<span class="disappear-in-seconds">Updated</span>')
+  } else {
+    notice.style.display = "inline-block";
+  }
+  window.setTimeout(closeHelpDiv, 3000);
 }
 
 changeTextButton();
