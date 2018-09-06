@@ -39,6 +39,7 @@ class VideosController < ApplicationController
     @video_categories = VideoCategory.where("video_id = #{@video.id}")
     @comments = Comment.where(video: @video)
     increment_skill_score if user_signed_in?
+    @display_calculator = show_calculator?(@video)
     @suggested_videos = get_suggested_videos(@video)
     # increment_interest_score if user_signed_in?
   end
@@ -115,6 +116,16 @@ class VideosController < ApplicationController
       new_skill_score = (score.skill_score += 1)
       # Increment viewed_videos or skill score score by one
       score.update(viewed_videos: new_viewed_videos_score, skill_score: new_skill_score)
+    end
+  end
+
+  def show_calculator?(video)
+    tech = SubCategory.find_by(name: 'Technologie')
+    astronomie = SubCategory.find_by(name: 'Astronomie & Cosmologie')
+    if (video.sub_categories.include? tech) || (video.sub_categories.include? astronomie)
+      return true
+    else
+      return false
     end
   end
 end
