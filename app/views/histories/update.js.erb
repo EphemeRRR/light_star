@@ -17,9 +17,10 @@ function closeHelpDiv(){
 function changeTextButton() {
   const button = document.querySelector('.recomandation');
   const notice = document.querySelector('.disappear-in-seconds');
+  const updated = document.getElementById('updated');
 
   if (!notice) {
-    button.insertAdjacentHTML('beforeend', '<span class="disappear-in-seconds">Updated</span>')
+    updated.insertAdjacentHTML('beforeend', '<i class="disappear-in-seconds fas fa-check-square"></i>')
   } else {
     notice.style.display = "inline-block";
   }

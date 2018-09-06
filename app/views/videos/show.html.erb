@@ -73,7 +73,9 @@
              <%= simple_form_for @history, remote: true, method: :patch do |f| %>
                <%= f.input :note, as: :text, label: false, :input_html => {style: 'height:350px;'} %>
                <%= f.input :id, as: :hidden %>
-               <%= f.button :submit, 'Sauvegarde Notes', class: 'btn btn-success' %>
+               <div id="updated"><%= f.button :submit, 'Sauvegarde Notes', class: 'btn btn-success' %>
+                <div ></div>
+               </div>
               <% end %>
             </div>
           <% else %>
