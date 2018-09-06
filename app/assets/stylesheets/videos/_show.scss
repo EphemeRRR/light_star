@@ -1,0 +1,21 @@
+.tools-menus {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.tools-menu-tab {
+  cursor: pointer;
+  padding: 10px;
+  text-align: center;
+}
+.tools-menu-tab.active, .tools-menu-tab:hover {
+  background-color: $blue;
+  color: #FFF;
+}
+.tools-menu-tab-body {
+  height: 420px;
+}
+.tools-menu-body {
+  line-height: 32px;
+  padding-left: 10px;
+  max-height: 350px;
+  overflow: scroll;
+}
