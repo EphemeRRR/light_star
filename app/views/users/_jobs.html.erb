@@ -1,6 +1,14 @@
 <div class="user-jobs light-star-card-border-top-no-hover background-white">
   <h4 class="margin-top-0">Des métiers qui peuvent t'intéresser</h4>
-  <% @jobs.each do |job| %>
-    <p><%= job.title %> => <%= job.url %></p>
-  <% end %>
+  <div class="row">
+    <% @jobs.each do |job| %>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="suggested-job">
+          <div>
+            <%= job.title %> <%= job.url %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
