@@ -48,7 +48,7 @@ class VideosController < ApplicationController
     if params[:query].present?
       @videos = Video.global_search(params[:query])
       @query = params[:query]
-      flash[:notice] = "Résultats pour '#{@query}.'"
+      # flash[:notice] = "Résultats pour '#{@query}.'"
     else
      flash[:alert] = "Nous mettons nos catégories à jour, merci de réessayer ta recherche plus tard."
      redirect_to root_path
