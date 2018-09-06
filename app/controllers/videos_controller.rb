@@ -39,6 +39,7 @@ class VideosController < ApplicationController
     @video_categories = VideoCategory.where("video_id = #{@video.id}")
     @comments = Comment.where(video: @video)
     increment_skill_score if user_signed_in?
+    @suggested_videos = get_suggested_videos(@video)
     # increment_interest_score if user_signed_in?
   end
 
@@ -68,6 +69,19 @@ class VideosController < ApplicationController
         history.touch
         history
       end
+    end
+  end
+
+  def get_suggested_videos(video)
+    if video.sub_categories.any?
+      suggested_videos = []
+      video.sub_categories.each do |sub_category|
+        video_tags = sub_category.video_categories.order(relevance: :desc).limit(4)
+        video_tags.each { |tag| suggested_videos << tag.video }
+      end
+      suggested_videos.shuffle
+    else
+      Video.all.shuffle.first(8)
     end
   end
 

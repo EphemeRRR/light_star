@@ -28,6 +28,7 @@
 }
 .large-video-card-wrapper {
   background-color: #fff;
+  margin-bottom: 15px;
 }
 
 .iframe-container {
@@ -66,7 +67,6 @@
   padding-left: 15px;
   // padding-top: 5px;
 }
-
 .bottom-video {
   height: auto;
   // box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
@@ -83,8 +83,8 @@
   padding-left: 15px;
   font-size: 16px;
 }
-.categories-wrapper {
-
+.categories-wrapper:first-child {
+  margin-left: -0.5em
 }
 .category-label {
   display: inline;
@@ -118,6 +118,10 @@
 }
 .btn-see-description:hover {
   opacity: 0.5;
+}
+.suggested-videos {
+  margin: 15px 0;
+  padding: 15px;
 }
 
 @media (min-width: 768px) {
