@@ -1,71 +1,90 @@
-<h1 class="text-center headline"><!--<%= @video.title %>--></h1>
-
+<div class="padding-15"></div>
 <div class="container">
   <div class="grid-show">
     <div class="wrapper-row">
       <div class="row">
         <div class="col-xs-12 col-md-12">
-          <div class="iframe-container">
-            <iframe src="https://www.youtube.com/embed/<%= @video.youtube_id %>?rel=0" allowfullscreen></iframe>
-          </div>
-            <div class="bottom-video">
-              <div class="video-details-wrapper">
-
-                <p><i class="far fa-comments"> 12</i></p>
-                <p><i class="far fa-eye"> 2</i></p>
-                <div class="icon-wrapper"><i class="far fa-clock"></i> <%= @video.duration_seconds / 60 %>:<%= "%.2i" %(@video.duration_seconds % 60) %>
-                </div>
-              </div>
-              <div class="verified-wrapper">
-                <% if @video.verified == true  %>
-                  <div class="verified">
-                    <i class="fas fa-check-circle"><p>Vidéo vérifiée</p></i>
-                  </div>
-                <% end %>
-                <% if @video.introduction == true  %>
-                  <div class="verified">
-                    <i class="fas fa-info-circle"><p>Vidéo d'introduction</p></i>
-
-                  </div>
-                <% end %>
-                <% if  @video.pro == true  %>
-                  <div class="verified">
-                    <i class="fas fa-key"><p>Vidéo professionnalisante</p></i>
-                  </div>
-                <% end %>
-              </div>
-              <hr>
-              <div id="accordion">
-                <div class="card-header" id="headingTwo">
-                  <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                      Description ...
-                    </button>
-                  </h5>
-                </div>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                  <div class="card-body video-content">
-                    <%= @video.description %>
-                  </div>
-                </div>
-              </div>
-              <hr>
+          <div class="large-video-card-wrapper light-star-card-no-hover">
+            <div class="iframe-container">
+              <iframe src="https://www.youtube.com/embed/<%= @video.youtube_id %>?rel=0" allowfullscreen></iframe>
             </div>
+              <div class="bottom-video">
+                <div class="video-details-wrapper">
+                  <div class="categories-wrapper">
+                    <% @video.sub_categories.each do |sub_category| %>
+                      <span class="category-label"><%= sub_category.name %></span>
+                    <% end %>
+                  </div>
+                  <div class="stats-wrapper">
+                    <div><i class="far fa-comments"> 12</i></div>
+                    <div><i class="far fa-eye"> 2</i></div>
+                    <div class="icon-wrapper"><i class="far fa-clock"></i> <%= @video.duration_seconds / 60 %>:<%= "%.2i" %(@video.duration_seconds % 60) %>
+                    </div>
+                  </div>
+                </div>
+                <h1 class="h4 video-title"><%= @video.title %></h1>
+                <div class="verified-wrapper">
+                  <% if @video.verified == true  %>
+                    <div class="verified">
+                      <i class="fas fa-check-circle"><p>Vidéo vérifiée</p></i>
+                    </div>
+                  <% end %>
+                  <% if @video.introduction == true  %>
+                    <div class="verified">
+                      <i class="fas fa-info-circle"><p>Vidéo d'introduction</p></i>
+
+                    </div>
+                  <% end %>
+                  <% if  @video.pro == true  %>
+                    <div class="verified">
+                      <i class="fas fa-key"><p>Vidéo professionnalisante</p></i>
+                    </div>
+                  <% end %>
+                </div>
+                <div id="accordion">
+                  <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                      <button class="btn-see-description collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Voir la déscription...
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body video-content">
+                      <%= @video.description %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <%= render 'suggested_videos' %>
           </div>
         </div>
       </div>
-      <div class="recomandation">
-        <%= render 'calculater' %>
-      <% if user_signed_in? %>
-       <%= simple_form_for @history, remote: true, method: :patch do |f| %>
-         <%= f.input :note, as: :text, :input_html => {style: 'height:80vh;'} %>
-         <%= f.input :id, as: :hidden %>
-         <%= f.button :submit, class: ' btn btn-success' %>
-       <% end %>
-       <% end %>
+      <div class="recomandation light-star-card-no-hover">
+        <div class="tools-menu">
+          <ul class="nav nav-tabs tools-tab-list">
+            <li role="presentation" id="tab-1" class="tools-menu-tab active">Notes</li>
+            <li role="presentation" id="tab-2" class="tools-menu-tab ">Calculatrice</li>
+          </ul>
+          <% if user_signed_in? %>
+            <div id="tab-body-1" class="tools-menu-tab-body hidden">
+             <%= simple_form_for @history, remote: true, method: :patch do |f| %>
+               <%= f.input :note, as: :text, label: false, :input_html => {style: 'height:350px;'} %>
+               <%= f.input :id, as: :hidden %>
+               <%= f.button :submit, 'Sauvegarde Notes', class: 'btn btn-success' %>
+              <% end %>
+            </div>
+          <% else %>
+            <div id="tab-body-2" class="tools-menu-tab-body">
+              <%= link_to t(".sign_in", default: "Connecte-toi pour prendre des notes."), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+            </div>
+          <% end %>
+          <div id="tab-body-2" class="tools-menu-tab-body hidden">
+            <%= render 'calculater' %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-
