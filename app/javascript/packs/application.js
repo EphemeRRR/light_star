@@ -1,4 +1,5 @@
 import "bootstrap";
+import { videosToolsTabs } from "../video_tools_tabs/video_tools_tabs.js";
 import 'chart.js';
 import 'popper.js';
 // import 'jquery-ui';
@@ -8,6 +9,8 @@ import 'popper.js';
 //       return $(this).attr("aria-valuenow") + "%";
 //     })
 //   })
+videoToolsTabs();
+
 $(document).ready(function(){
   $(".buttton-image").click(function(){
     $(this).toggleClass("activated");
