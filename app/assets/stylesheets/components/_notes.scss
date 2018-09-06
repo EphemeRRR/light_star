@@ -1,5 +1,9 @@
 .disappear-in-seconds {
   font-size: 35px;
+  padding-left: 15px;
+  // margin-left: -25px;
+  // position: absolute;
+  // right: 0;
 }
 
 // .disappear-in-second span {
@@ -7,9 +11,10 @@
 // }
 
 #updated {
+  // position: relative;
   color: $secondary;
   display: flex;
-  justify-content: space-around;
-  margin-left: -25px;
+  justify-content: flex-start;
+  // margin-left: -25px;
 
 }
