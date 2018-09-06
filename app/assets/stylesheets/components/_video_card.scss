@@ -115,21 +115,22 @@
   opacity: 0.5;
 }
 
-@media (min-width: 768px) {
+// @media (min-width: 768px) {
+  // Find relevant code, with breakpoints,
+  // in stylesheets/videos/_show.scss
+  // .grid-show {
+  //   flex-direction: row;
+  // }
 
-  .grid-show {
-    flex-direction: row;
-  }
+  // .recomandation {
+  //   flex: 0 0 25%;
+  // }
 
-  .recomandation {
-    flex: 0 0 25%;
-  }
-
-  .wrapper-row {
-    flex: 1 1 auto;
-    padding-right: 15px;
-  }
-}
+  // .wrapper-row {
+  //   flex: 1 1 auto;
+  //   padding-right: 15px;
+  // }
+// }
 
 
 
