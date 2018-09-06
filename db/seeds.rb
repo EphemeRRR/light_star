@@ -10,7 +10,7 @@ VideoCategory.destroy_all
 User.destroy_all
 puts "cleaning completed"
 
-user = User.(email: "francoismarie.verdier@gmail.com", password: "password", password_confirmation: "password", admin: true)
+user = User.create!(email: "francoismarie.verdier@gmail.com", password: "password", password_confirmation: "password", admin: true)
 
 puts "creating super categories :"
 cat1 = SuperCategory.create!(name: "Physique, Chimie & Technologie")
@@ -113,67 +113,72 @@ job9.sub_category = cat52
 job9.save
 
 
-categories = %w(sciences-de-la-vie espace physique sante sciences-sociales chimie technologie-innovation systeme-terre passe politique environnement) # can add maths later
+def seed_all
+  categories = %w(sciences-de-la-vie espace physique sante sciences-sociales chimie technologie-innovation systeme-terre passe politique environnement) # can add maths later
 
-categories.each do |category|
-  cafe_html = "http://www.cafe-sciences.org/#{category}/page/"
+  categories.each do |category|
+    cafe_html = "http://www.cafe-sciences.org/#{category}/page/"
 
-  case category
-  when "sciences-de-la-vie"
-    subcategory = SubCategory.find_by(name: "Le Monde Animal")
-  when "espace"
-    subcategory = SubCategory.find_by(name: "Astronomie & Cosmologie")
-  when "physique"
-    subcategory = SubCategory.find_by(name: "Interaction & Mécanique")
-  when "sante"
-    subcategory = SubCategory.find_by(name: "Santé")
-  when "sciences-sociales"
-    subcategory = SubCategory.find_by(name: "Philosophie & social")
-  when "chimie"
-    subcategory = SubCategory.find_by(name: "Matière & Matériaux")
-  when "technologie-innovation"
-    subcategory = SubCategory.find_by(name: "Technologie")
-  when "systeme-terre"
-    subcategory = SubCategory.find_by(name: "Terre & Géologie")
-  when "passe"
-    subcategory = SubCategory.find_by(name: "Histoire & Passé")
-  when "politique"
-    subcategory = SubCategory.find_by(name: "Politique & Gestion")
-  when "environnement"
-    subcategory = SubCategory.find_by(name: "Environnement")
-  end
+    case category
+    when "sciences-de-la-vie"
+      subcategory = SubCategory.find_by(name: "Le Monde Animal")
+    when "espace"
+      subcategory = SubCategory.find_by(name: "Astronomie & Cosmologie")
+    when "physique"
+      subcategory = SubCategory.find_by(name: "Interaction & Mécanique")
+    when "sante"
+      subcategory = SubCategory.find_by(name: "Santé")
+    when "sciences-sociales"
+      subcategory = SubCategory.find_by(name: "Philosophie & social")
+    when "chimie"
+      subcategory = SubCategory.find_by(name: "Matière & Matériaux")
+    when "technologie-innovation"
+      subcategory = SubCategory.find_by(name: "Technologie")
+    when "systeme-terre"
+      subcategory = SubCategory.find_by(name: "Terre & Géologie")
+    when "passe"
+      subcategory = SubCategory.find_by(name: "Histoire & Passé")
+    when "politique"
+      subcategory = SubCategory.find_by(name: "Politique & Gestion")
+    when "environnement"
+      subcategory = SubCategory.find_by(name: "Environnement")
+    end
 
-  count = 0
-  for i in (1..10)
-    html_content = open("#{cafe_html}#{i}").read
-    doc = Nokogiri::HTML(html_content)
+    count = 0
+    for i in (1..10)
+      html_content = open("#{cafe_html}#{i}").read
+      doc = Nokogiri::HTML(html_content)
 
-    doc.search('.entry-title a').each do |element|
-      if /^https:\/\/www.youtube.com\/watch\?v=.{11}$/.match(element['href'])
+      doc.search('.entry-title a').each do |element|
+        if /^https:\/\/www.youtube.com\/watch\?v=.{11}$/.match(element['href'])
 
-        yt_id = element['href'][-11, 11]
+          yt_id = element['href'][-11, 11]
 
-        if Video.find_by(youtube_id: yt_id) != nil
-          vid = Video.find_by(youtube_id: yt_id)
+          if Video.find_by(youtube_id: yt_id) != nil
+            vid = Video.find_by(youtube_id: yt_id)
 
-        else
-          video = Yt::Video.new id: yt_id
-          vid = Video.create!(title: video.title, youtube_id: yt_id, duration_seconds: video.duration, minimum_age: 99, description: video.description, channel: video.channel_title, verified: true, introduction: true, pro: false)
+          else
+            video = Yt::Video.new id: yt_id
+            vid = Video.create!(title: video.title, youtube_id: yt_id, duration_seconds: video.duration, minimum_age: 99, description: video.description, channel: video.channel_title, verified: true, introduction: true, pro: false)
+
+          end
+
+          tag = VideoCategory.new(relevance: 100)
+          tag.sub_category = subcategory
+          tag.video = vid
+          tag.save
 
         end
-
-        tag = VideoCategory.new(relevance: 100)
-        tag.sub_category = subcategory
-        tag.video = vid
-        tag.save
-
       end
+      count += 1
     end
-    count += 1
-  end
-  puts "add #{count} videos in #{category}"
+    puts "add #{count} videos in #{category}"
 
+  end
+  rescue Yt::Errors::NoItems => e
+  puts e.message
 end
 
-puts "adding #{Video.all} videos in db."
+seed_all
 
+puts "adding #{Video.all} videos in db."
