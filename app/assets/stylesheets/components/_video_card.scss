@@ -61,6 +61,9 @@
 .headline {
   margin-bottom: 100px;
 }
+.video-title {
+  padding-left: 15px;
+}
 
 .bottom-video {
   height: auto;
@@ -70,11 +73,27 @@
 }
 
 .video-details-wrapper {
-  height: 45px;
+  padding-top: 15px;
+  padding-right: 15px;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   align-items: center;
+  font-size: 16px;
   color: gray;
+}
+.video-details-wrapper > div {
+  padding: 0 10px;
+}
+.btn-see-description {
+  color: $secondary;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+  outline: none;
+}
+.btn-see-description:hover {
+  opacity: 0.5;
 }
 
 @media (min-width: 768px) {

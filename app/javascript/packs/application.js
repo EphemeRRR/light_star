@@ -1,17 +1,13 @@
 import "bootstrap";
 import { videoToolsTabs } from "../video_tools_tabs/video_tools_tabs.js";
-import { chart } from "../chart/show_chart.js";
 import 'chart.js';
+import { chart } from "../chart/show_chart.js";
 import 'popper.js';
 // import 'jquery-ui';
 
-// $(document).on('ready',function(){
-//     $('.progress .progress-bar').css("width",function() {
-//       return $(this).attr("aria-valuenow") + "%";
-//     })
-//   })
-chart();
 videoToolsTabs();
+chart();
+
 
 $(document).ready(function(){
   $(".buttton-image").click(function(){
@@ -30,16 +26,3 @@ $(document).ready(function(){
 
 // window.onload = chart();
 
-
-
-// const btnHistorySeeMore.querySelector('#see-more');
-// const toggleHistory = (event) => {
-//   btnHistorySeeMore.classList.toggleClass('history-see-less')
-//   btnHistorySeeMore.innerHTML = 'Voir moins...'
-// };
-
-// const listenToHistroyToggle = () => {
-//   btnHistorySeeMore.addEventListener('click', toggleHistory);
-// };
-
-// listenToHistroyToggle();
