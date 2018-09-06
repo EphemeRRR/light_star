@@ -23,24 +23,6 @@
                   </div>
                 </div>
                 <h1 class="h4 video-title"><%= @video.title %></h1>
-                <div class="verified-wrapper">
-                  <% if @video.verified == true  %>
-                    <div class="verified">
-                      <i class="fas fa-check-circle"><p>Vidéo vérifiée</p></i>
-                    </div>
-                  <% end %>
-                  <% if @video.introduction == true  %>
-                    <div class="verified">
-                      <i class="fas fa-info-circle"><p>Vidéo d'introduction</p></i>
-
-                    </div>
-                  <% end %>
-                  <% if  @video.pro == true  %>
-                    <div class="verified">
-                      <i class="fas fa-key"><p>Vidéo professionnalisante</p></i>
-                    </div>
-                  <% end %>
-                </div>
                 <div id="accordion">
                   <div class="card-header" id="headingTwo">
                     <h5 class="mb-0">
