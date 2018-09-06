@@ -4,7 +4,7 @@ class HistoriesController < ApplicationController
   end
 
   def update
-    @history = History.find(params["history"]["id"])
+    @history = History.find(params[:id])
     @history.note = params["history"]["note"]
     @history.save
 
