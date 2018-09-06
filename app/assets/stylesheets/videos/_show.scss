@@ -3,12 +3,14 @@
 }
 .tools-menu-tab {
   cursor: pointer;
-  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
   text-align: center;
 }
 .tools-menu-tab.active, .tools-menu-tab:hover {
-  background-color: $blue;
-  color: #FFF;
+  color: $secondary;
+  border-bottom: 2px $secondary solid;
 }
 .tools-menu-tab-body {
   height: 420px;
@@ -18,4 +20,14 @@
   padding-left: 10px;
   max-height: 350px;
   overflow: scroll;
+}
+.tools-tab-list {
+  margin-bottom: 20px;
+  color: gray;
+}
+.recomandation {
+  margin-left: 15px;
+  padding: 15px;
+  background-color: #fff;
+  height: 490px;
 }

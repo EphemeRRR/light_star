@@ -54,21 +54,18 @@
           </div>
         </div>
       </div>
-      <div class="recomandation">
+      <div class="recomandation light-star-card-no-hover">
         <div class="tools-menu">
-          <ul class="nav nav-tabs">
-            <li role="presentation" id="tab-1" class="tools-menu-tab active"><strong>Notes</strong></li>
-            <li role="presentation" id="tab-2" class="tools-menu-tab "><strong>Calculatrice</strong></li>
+          <ul class="nav nav-tabs tools-tab-list">
+            <li role="presentation" id="tab-1" class="tools-menu-tab active">Notes</li>
+            <li role="presentation" id="tab-2" class="tools-menu-tab ">Calculatrice</li>
           </ul>
-          <div id="tab-body-1" class="tools-menu-tab-body">
-            <%= render 'calculater' %>
-          </div>
           <% if user_signed_in? %>
-            <div id="tab-body-2" class="tools-menu-tab-body">
+            <div id="tab-body-1" class="tools-menu-tab-body hidden">
              <%= simple_form_for @history, remote: true, method: :patch do |f| %>
                <%= f.input :note, as: :text, label: false, :input_html => {style: 'height:350px;'} %>
                <%= f.input :id, as: :hidden %>
-               <%= f.button :submit, class: 'btn btn-success' %>
+               <%= f.button :submit, 'Sauvegarde Notes', class: 'btn btn-success' %>
               <% end %>
             </div>
           <% else %>
@@ -76,6 +73,9 @@
               <%= link_to t(".sign_in", default: "Connecte-toi pour prendre des notes."), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
             </div>
           <% end %>
+          <div id="tab-body-2" class="tools-menu-tab-body hidden">
+            <%= render 'calculater' %>
+          </div>
         </div>
       </div>
     </div>

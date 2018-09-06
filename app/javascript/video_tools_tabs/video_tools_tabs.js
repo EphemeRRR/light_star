@@ -14,30 +14,12 @@ const videoToolsTabs = () => {
     tabTwoButton.classList.remove("active");
     tabTwoBody.classList.remove("show");
     tabTwoBody.classList.add("hidden");
-    tabThreeButton.classList.remove("active");
-    tabThreeBody.classList.remove("show");
-    tabThreeBody.classList.add("hidden");
   }
 
   const DisplayBodyHideOthersTwo = (event) => {
     tabTwoButton.classList.add("active");
     tabTwoBody.classList.add("show");
     tabTwoBody.classList.remove("hidden");
-    tabOneButton.classList.remove("active");
-    tabOneBody.classList.remove("show");
-    tabOneBody.classList.add("hidden");
-    tabThreeButton.classList.remove("active");
-    tabThreeBody.classList.remove("show");
-    tabThreeBody.classList.add("hidden");
-  }
-
-  const DisplayBodyHideOthersThree = (event) => {
-    tabThreeButton.classList.add("active");
-    tabThreeBody.classList.add("show");
-    tabThreeBody.classList.remove("hidden");
-    tabTwoButton.classList.remove("active");
-    tabTwoBody.classList.remove("show");
-    tabTwoBody.classList.add("hidden");
     tabOneButton.classList.remove("active");
     tabOneBody.classList.remove("show");
     tabOneBody.classList.add("hidden");
@@ -48,7 +30,6 @@ const videoToolsTabs = () => {
   tabOneBody.classList.add("show");
   tabOneButton.addEventListener("click", DisplayBodyHideOthersOne);
   tabTwoButton.addEventListener("click", DisplayBodyHideOthersTwo);
-  tabThreeButton.addEventListener("click", DisplayBodyHideOthersThree);
 
 
 };

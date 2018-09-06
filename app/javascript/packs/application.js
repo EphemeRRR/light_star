@@ -1,5 +1,5 @@
 import "bootstrap";
-import { videosToolsTabs } from "../video_tools_tabs/video_tools_tabs.js";
+import { videoToolsTabs } from "../video_tools_tabs/video_tools_tabs.js";
 import 'chart.js';
 import 'popper.js';
 // import 'jquery-ui';
