@@ -5,8 +5,8 @@ import { chart } from "../chart/show_chart.js";
 import 'popper.js';
 // import 'jquery-ui';
 
-videoToolsTabs();
 chart();
+videoToolsTabs();
 
 
 $(document).ready(function(){
