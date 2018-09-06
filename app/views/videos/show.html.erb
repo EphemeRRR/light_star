@@ -60,7 +60,7 @@
        <%= simple_form_for @history, remote: true, method: :patch do |f| %>
          <%= f.input :note, as: :text, :input_html => {style: 'height:80vh;'} %>
          <%= f.input :id, as: :hidden %>
-         <%= f.button :submit, class: 'btn btn-success' %>
+         <%= f.button :submit, class: ' btn btn-success' %>
        <% end %>
        <% end %>
       </div>
@@ -69,12 +69,3 @@
 </div>
 
 
-<div class="container">
-  <p>Vidéo d'introduction : <%= @video.introduction %></p>
-  <p>Vidéo professionnalisante : <%= @video.pro %></p>
-  <p>Vidéo vérifiée : <%= @video.verified %></p>
-  <p>Vidéo subcategories :</p>
-  <% @video_categories.each do |video_category| %>
-    <ul><li><%= video_category.sub_category.name %> => <%= video_category.relevance %>%</li></ul>
-  <% end %>
-</div>
