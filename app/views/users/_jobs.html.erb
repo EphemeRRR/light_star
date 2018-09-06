@@ -1,6 +1,32 @@
 <div class="user-jobs light-star-card-border-top-no-hover background-white">
   <h4 class="margin-top-0">Des métiers qui peuvent t'intéresser</h4>
-  <% @jobs.each do |job| %>
-    <p><%= job.title %> => <%= job.url %></p>
-  <% end %>
+  <div class="row">
+    <% Job.all.each do |job| %>
+      <div class="col-xs-12 col-sm-6 col-md-3 no-padding">
+        <%= link_to job.url do %>
+          <div class="suggested-job">
+            <div class="job-icon">
+              <% if job.title == 'Médecin' %>
+                <i class="job-icon-grow fas fa-briefcase-medical"></i>
+              <% elsif job.title == 'Développeur' %>
+                <i class="job-icon-grow fas fa-laptop"></i>
+              <% elsif job.title == 'Laborantin' %>
+                <i class="job-icon-grow fas fa-prescription-bottle"></i>
+              <% elsif job.title == 'Barman' %>
+                <i class="job-icon-grow fas fa-wine-glass"></i>
+              <% else %>
+                <i class="job-icon-grow fas fa-check-circle"></i>
+              <% end %>
+            </div>
+            <div class="job-title">
+              <%= job.title %>
+            </div>
+            <div class="job-description">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, expedita dolorem.
+            </div>
+        <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

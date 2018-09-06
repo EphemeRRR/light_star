@@ -2,20 +2,24 @@ import "bootstrap";
 import { videoToolsTabs } from "../video_tools_tabs/video_tools_tabs.js";
 import 'chart.js';
 import { chart } from "../chart/show_chart.js";
+// import { selectInterests } from "../selection_modal/selection.js";
 import 'popper.js';
 // import 'jquery-ui';
 
+
+
+// selectInterests();
+
+
 chart();
 videoToolsTabs();
+
 
 
 $(document).ready(function(){
   $(".buttton-image").click(function(){
     $(this).toggleClass("activated");
   });
-
-
-
   // Toggle see-more/see-less for histroy in user show
   // $('.user-history').toggleClass("history-see-less", 1000);
   // if ($('.user-history').hasClass('history-see-less')) {
@@ -24,5 +28,4 @@ $(document).ready(function(){
   //         $("#see-more").text(("Voir moins..."));
   //     }
 });
-
 
