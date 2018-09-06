@@ -1,0 +1,33 @@
+// function refreshForm(innerHTML) {
+//   const newReviewForm = document.getElementById('new_review');
+//   newReviewForm.innerHTML = innerHTML;
+// }
+
+
+
+// function addReview(reviewHTML) {
+//   const reviews = document.getElementById('reviews');
+//   reviews.insertAdjacentHTML('beforeend', reviewHTML);
+// }
+
+function closeHelpDiv(){
+  document.querySelector('.disappear-in-seconds').style.display = "none";
+}
+
+function changeTextButton() {
+  const button = document.querySelector('.recomandation');
+  const notice = document.querySelector('.disappear-in-seconds');
+  const updated = document.getElementById('updated');
+
+  if (!notice) {
+    updated.insertAdjacentHTML('beforeend', '<i class="disappear-in-seconds fas fa-check-square"></i>')
+  } else {
+    notice.style.display = "inline-block";
+  }
+  window.setTimeout(closeHelpDiv, 3000);
+}
+
+changeTextButton();
+
+
+
