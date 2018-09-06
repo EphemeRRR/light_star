@@ -13,6 +13,9 @@ $(document).ready(function(){
   $(".buttton-image").click(function(){
     $(this).toggleClass("activated");
   });
+
+
+
   // Toggle see-more/see-less for histroy in user show
   // $('.user-history').toggleClass("history-see-less", 1000);
   // if ($('.user-history').hasClass('history-see-less')) {
@@ -22,7 +25,4 @@ $(document).ready(function(){
   //     }
 });
 
-
-
-// window.onload = chart();
 
