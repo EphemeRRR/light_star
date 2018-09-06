@@ -26,8 +26,16 @@
   color: gray;
 }
 .recomandation {
-  margin-left: 15px;
+  margin: 15px 0;
   padding: 15px;
   background-color: #fff;
   height: 490px;
+}
+@media (min-width: 768px) {
+  .recomandation {
+    margin-left: 15px;
+    margin-top: 0;
+    background-color: #fff;
+    height: 490px;
+  }
 }

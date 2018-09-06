@@ -10,12 +10,6 @@
   border-color: $secondary;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(39, 174, 96, 0.5);
 }
-.recomandation {
-  // padding: 10px;
-  // box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
-  // border-radius: 5px;
-  // border: 1px solid $secondary;
-}
 
 .wrapper-row {
 }
@@ -31,6 +25,9 @@
 .verified p:hover {
   opacity: 1;
   cursor: pointer;
+}
+.large-video-card-wrapper {
+  background-color: #fff;
 }
 
 .iframe-container {
@@ -67,15 +64,17 @@
 
 .bottom-video {
   height: auto;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+  // box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  // border-radius: 5px;
   transition: all 0.2s ease-in-out;
 }
 
 .video-details-wrapper {
+  height: 45px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  color: gray;
 }
 
 @media (min-width: 768px) {
