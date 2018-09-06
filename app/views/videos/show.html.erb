@@ -57,10 +57,10 @@
       <div class="recomandation">
         <%= render 'calculater' %>
       <% if user_signed_in? %>
-       <%= simple_form_for @history, remote: true, method: :patch do |f| %>
+       <%= simple_form_for @history, remote: true, method: :patch, url: history_path(@history) do |f| %>
          <%= f.input :note, as: :text, :input_html => {style: 'height:80vh;'} %>
          <%= f.input :id, as: :hidden %>
-         <%= f.button :submit, class: 'btn btn-success' %>
+         <%= f.button :submit, class: ' value-change btn btn-success' %>
        <% end %>
        <% end %>
       </div>
