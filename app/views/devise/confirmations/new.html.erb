@@ -1,6 +1,6 @@
 <div class="container">
   <div class="devise-form-wrapper">
-    <h2>Resend confirmation instructions</h2>
+    <h2>Renvoyer les instructions de confirmation</h2>
     <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
       <%= f.error_notification %>
       <%= f.full_error :confirmation_token %>
@@ -12,7 +12,7 @@
                     input_html: { autocomplete: "email", class: 'devise-form-control' } %>
       </div>
       <div class="form-actions">
-        <%= f.button :submit, "Resend confirmation instructions", class: 'btn-info' %>
+        <%= f.button :submit, "Renvoyer les instructions de confirmation", class: 'btn-info' %>
       </div>
     <% end %>
     <div class="form-footer-links">
