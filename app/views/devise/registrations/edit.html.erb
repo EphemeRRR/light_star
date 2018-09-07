@@ -15,12 +15,12 @@
         <%= f.input :email, required: true, input_html: { class: 'devise-form-control' } %>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <p>En attente de confirmation pour : <%= resource.unconfirmed_email %></p> <% #Currently waiting confirmation for: %>
+          <p>En attente de confirmation pour : <%= resource.unconfirmed_email %></p>
         <% end %>
 
         <%= f.input :password,
                     label: "Mot de passe",
-                    hint: "Ne pas remplir ce champ si vous ne souhaitez pas modifier", # leave it blank if you don't want to change it
+                    hint: "Ne pas remplir ce champ si vous ne souhaitez pas modifier",
                     required: false,
                     input_html: { autocomplete: "new-password", class: 'devise-form-control' } %>
         <%= f.input :password_confirmation,

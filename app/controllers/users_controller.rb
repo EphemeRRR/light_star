@@ -21,6 +21,34 @@ class UsersController < ApplicationController
     uncheck_and_zero_all_user_scores(user)
     skill_scores = get_skill_scores(params)
     check_and_augment_skill_scores(skill_scores, skill_scores.count)
+
+    if current_user == User.find_by(username: "Aurélie")
+      subcat1 = SubCategory.find_by(name: "Interaction & Mécanique")
+      subcat2 = SubCategory.find_by(name: "Santé")
+      subcat3 = SubCategory.find_by(name: "Technologie")
+      subcat4 = SubCategory.find_by(name: "Le Monde Animal")
+      subcat5 = SubCategory.find_by(name: "Politique & Gestion")
+
+      skill1 = SkillScore.find_by(user: current_user, sub_category: subcat1)
+      skill1.viewed_videos = 99
+      skill2 = SkillScore.find_by(user: current_user, sub_category: subcat2)
+      skill2.viewed_videos = 69
+      skill3 = SkillScore.find_by(user: current_user, sub_category: subcat3)
+      skill3.viewed_videos = 59
+      skill4 = SkillScore.find_by(user: current_user, sub_category: subcat4)
+      skill4.viewed_videos = 49
+      skill5 = SkillScore.find_by(user: current_user, sub_category: subcat5)
+      skill5.viewed_videos = 30
+
+      skill1.save
+      skill2.save
+      skill3.save
+      skill4.save
+      skill5.save
+
+
+    end
+
     flash[:notice] = "Tes interets ont été bien sauvegardés !"
     redirect_to user_profile_path(user)
   end
@@ -52,7 +80,11 @@ class UsersController < ApplicationController
   end
 
   def check_and_augment_skill_scores(skill_scores, number)
-    skill_score_value = (100 / number)
+    if number != 0
+      skill_score_value = (100 / number)
+    else
+      skill_score_value = 5
+    end
     skill_scores.each do |skill_score|
       skill_score.checked = true
       skill_score.skill_score = skill_score_value
