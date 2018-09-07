@@ -85,6 +85,15 @@
   display: table;
   padding: 0 15px;
 }
+.search-bar-wrapper {
+  max-width: 210px;
+}
+@media (min-width: 450px) {
+  .search-bar-wrapper {
+    max-width: 480px;
+  }
+}
+
 @media (min-width: 768px) {
   .navbar-wagon {
     padding: 0px 30px;
@@ -96,7 +105,6 @@
   .search-bar-wrapper {
     position:absolute;
     margin-left: 50%;
-    max-width: 480px;
     left: -240px;
   }
 }
