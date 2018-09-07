@@ -4,7 +4,7 @@
   background: white;
   transition: all 0.3s ease;
   height: 70px;
-  padding: 0px 30px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -83,8 +83,12 @@
 }
 .search-bar-wrapper {
   display: table;
-  max-width: 480px;
   padding: 0 15px;
+}
+@media (min-width: 768px) {
+  .navbar-wagon {
+    padding: 0px 30px;
+  }
 }
 
 // Center nav-bar on larger screens - responsively
@@ -92,6 +96,7 @@
   .search-bar-wrapper {
     position:absolute;
     margin-left: 50%;
+    max-width: 480px;
     left: -240px;
   }
 }
